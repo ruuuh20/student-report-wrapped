@@ -1,7 +1,37 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require("path");
 
-// You can delete this file if you're not using it
+
+module.exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const classTemplate = path.resolve("./src/templates/course.js")
+
+  const res = await graphql(
+    `
+      {
+        allContentfulClass {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `
+  )
+
+
+    
+       res.data.allContentfulClass.edges.forEach(edge => {
+        createPage({
+          path: `/courses/${edge.node.slug}`,
+          component: classTemplate,
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      })
+   
+    
+    
+    .catch(error => console.log("Error with contentful data", error))
+}
