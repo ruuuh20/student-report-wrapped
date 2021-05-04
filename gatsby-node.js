@@ -33,5 +33,5 @@ module.exports.createPages = async ({ graphql, actions }) => {
    
     
     
-    .catch(error => console.log("Error with contentful data", error))
+
 }
