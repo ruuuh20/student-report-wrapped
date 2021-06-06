@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Writing from "../components/writing"
 
 import { gsap } from "gsap"
 
@@ -21,6 +21,9 @@ const IndexPage = () => {
             }
             thumbnail {
               gatsbyImageData(width: 200)
+              file {
+                url
+              }
             }
           }
         }
@@ -29,11 +32,9 @@ const IndexPage = () => {
   `)
 
   const [contentOpen, setContentOpen] = useState(false)
+  const [writingOpen, setWritingOpen] = useState(false)
 
   const image = getImage(data.allContentfulBook.edges[0].node.thumbnail)
-  const image2 = getImage(data.allContentfulBook.edges[1].node.thumbnail)
-  const image3 = getImage(data.allContentfulBook.edges[2].node.thumbnail)
-  const image4 = getImage(data.allContentfulBook.edges[3].node.thumbnail)
 
   useEffect(() => {
     // gsap.set(".preview__item-content", { opacity: 0 })
@@ -46,6 +47,7 @@ const IndexPage = () => {
   }
 
   const handleClick = e => {
+    console.log("?")
     e.preventDefault()
     setContentOpen(true)
     gsap
@@ -70,116 +72,124 @@ const IndexPage = () => {
       })
   }
 
+  const handleCloseButton = e => {
+    setWritingOpen(false)
+  }
+
+  const handleClickSubject = () => {
+    setWritingOpen(true)
+    console.log("open")
+  }
+
   return (
     <Layout>
       <Seo title="Home" />
-      <div className="menu">
-        <h2>Reading</h2>
-        <h2>Writing</h2>
-        <h2>Vocabulary</h2>
-      </div>
 
       <div className="main-content">
-        <div className="grid">
-          <a href="#" className="grid-item pos-1" style={{ display: "grid" }}>
-            <StaticImage
-              style={{
-                gridArea: "1/1",
-                // You can set a maximum height for the image, if you wish.
-                // maxHeight: 600,
-              }}
-              width={300}
-              // You can optionally force an aspect ratio for the generated image
-              aspectRatio={3 / 1}
-              // This is a presentational image, so the alt should be an empty string
-              alt=""
-              // Assisi, Perúgia, Itália by Bernardo Ferrari, via Unsplash
-              src={"../images/books/1.jpg"}
-              formats={["auto", "webp", "avif"]}
-            />
+        {writingOpen ? (
+          <Writing handleCloseButton={handleCloseButton} />
+        ) : (
+          <div className="center-container">
             <div
-              style={{
-                // By using the same grid area for both, they are stacked on top of each other
-                gridArea: "1/1",
-                position: "relative",
-                // This centers the other elements inside the hero component
-                placeItems: "center",
-                display: "grid",
-              }}
+              style={{ zIndex: "999" }}
+              className="subjects-menu"
+              onClick={handleClickSubject}
             >
-              <h1>Hero text</h1>
+              Writing
             </div>
-          </a>
+            <div className="content">
+              Welcome! This is your progress report for the April to May
+            </div>
+          </div>
+        )}
+        <div className="grid">
+          <div className="menu name">
+            <div className="first-name">John</div>
+            <div className="last-name">Smith</div>
+          </div>
+          {data.allContentfulBook.edges.map((grid, index) => (
+            <Grid
+              index={index}
+              title={grid.node.title}
+              imageUrl={grid.node.thumbnail.file.url}
+              image={grid.node.thumbnail}
+              handleGridItem={handleGridItem}
+              handleClick={handleClick}
+              data-title="Evenner"
+            />
+          ))}
           <a
-            href=""
-            className="grid-item pos-2"
-            data-title="Evenner"
-            onMouseOver={handleGridItem}
-            onClick={handleClick}
-          >
-            <GatsbyImage image={image} alt="a" />
-          </a>
-          <a href="" className="grid-item pos-3">
-            <GatsbyImage image={image2} alt="a" />
-          </a>
-          <a href="" className="grid-item pos-4">
-            <GatsbyImage image={image3} alt="a" />
-          </a>
-          <a href="" className="grid-item pos-5">
-            <GatsbyImage image={image4} alt="a" />
-          </a>
+            href="#"
+            className="grid-item pos-1"
+            style={{ display: "grid" }}
+          ></a>
         </div>
-        <div class="preview">
-          <div class="preview__item" id="preview-1">
+        <div className="preview">
+          <div className="preview__item" id="preview-1">
             <button
               className="preview__item-back unbutton"
               onClick={handleBackButton}
             >
               <span>Back</span>
             </button>
-            <div class="preview__item-imgwrap">
+            <div className="preview__item-imgwrap">
               <GatsbyImage image={image} alt="a" />
               image
             </div>
             <h2 data-splitting class="preview__item-title">
               Mohanneles
             </h2>
-            <div class="preview__item-content">
-              <div class="preview__item-meta">
+            <div className="preview__item-content">
+              <div className="preview__item-meta">
                 <span>Acapulco, Mexico</span>
                 <span>15/05/2025</span>
               </div>
-              <p class="preview__item-description">
+              <p className="preview__item-description">
                 Had a barney with the inlaws a bit miffed pigeons in Trafalgar
                 Square nigh on't goggle box chav hard cheese old boy, marvelous
                 Moriarty pulled a right corker squiffy fork out, a tad
                 stupendous chaps doing my head in ee bah gum.
               </p>
-              <button class="preview__item-info unbutton">+ Info</button>
-              <button class="preview__item-button">Buy Tickets</button>
+              <button className="preview__item-info unbutton">+ Info</button>
+              <button className="preview__item-button">Buy Tickets</button>
             </div>
           </div>
         </div>
 
-        <div>
-          {data.allContentfulBook.edges.map((grid, index) => (
-            <Grid title={grid.node.title} />
-          ))}
-        </div>
+        <div></div>
       </div>
     </Layout>
   )
 }
 
-const Grid = ({ title, video }) => {
+const Grid = ({
+  title,
+  index,
+  video,
+  imageUrl,
+  image,
+  handleClick,
+  handleGridItem,
+}) => {
   const grid = useRef()
   const [hoverState, setHoverState] = useState(false)
 
+  let image1 = getImage(image)
+
   return (
     <>
-      <div className="asf" ref={grid}>
-        <h3>{title}</h3>
-      </div>
+      <a
+        className={`grid-item pos-${index}`}
+        ref={grid}
+        style={{ display: "grid" }}
+        data-title="Evenner"
+        onMouseOver={handleGridItem}
+        onClick={handleClick}
+        data-title="Evenner"
+      >
+        <div>{title}</div>
+        <GatsbyImage image={image1} alt={title} />
+      </a>
     </>
   )
 }

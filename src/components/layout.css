@@ -602,11 +602,24 @@ pre tt:after {
   }
 }
 
+:root {
+  --color-main: #7d97b8;
+  --color-second: #52a47e;
+  --color-orange: #ff5200;
+}
+
 body,
 html {
   height: 100%;
   width: 100%;
   position: relative;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: flex-end;
 }
 
 .main-content {
@@ -629,7 +642,7 @@ html {
   position: absolute;
   width: 120%;
   height: 120%;
-  top: -10%;
+  /* top: -10%; */
   left: -10%;
   display: grid;
   grid-template-columns: repeat(50, 2%);
@@ -637,39 +650,62 @@ html {
   perspective: 1000px;
 }
 
-.pos-1 {
-  --grid-row: 10;
-  --grid-column: 1;
-}
-
-.pos-2 {
-  --grid-row: 1;
+.pos-0 {
+  --grid-row: 5;
   --grid-column: 18;
 }
 
+.pos-1 {
+  --grid-row: 5;
+  --grid-column: 26;
+}
+
+.pos-2 {
+  --grid-row: 5;
+  --grid-column: 34;
+}
+
 .pos-3 {
-  --grid-row: 1;
-  --grid-column: 29;
+  --grid-row: 24;
+  --grid-column: 18;
 }
 
 .pos-4 {
-  --grid-row: 15;
-  --grid-column: 12;
+  --grid-row: 24;
+  --grid-column: 26;
 }
 
 .pos-5 {
-  --grid-row: 17;
-  --grid-column: 25;
+  --grid-row: 24;
+  --grid-column: 34;
 }
 
 .grid-item {
   position: relative;
   will-change: transform;
-  grid-area: var(--grid-row) / var(--grid-column) / span 12 / span 5;
+  grid-area: var(--grid-row) / var(--grid-column) / span 13 / span 4;
+  opacity: 0.25;
+  filter: grayscale();
+}
+
+.center-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 0;
+  align-items: start;
+  position: absolute;
+}
+
+.center-container .content {
+  font-size: 50px;
+  line-height: 1.5;
+  /* position: absolute; */
+  grid-column: 5/12;
+  margin: 0;
 }
 
 main {
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 100%;
 }
 
@@ -723,6 +759,33 @@ main {
   display: flex;
 }
 
+.menu a {
+  opacity: 0.7;
+  font-size: 18px;
+  color: #3e3f3f;
+  text-decoration: none;
+  margin: 0 2px;
+}
+
+.name {
+  color: var(--color-main);
+  grid-column: 8/15;
+  grid-row: 5/20;
+  font-size: 50px;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+/* .first-name {
+  grid-column: 8/20;
+  grid-row: 5/20;
+}
+
+.last-name {
+  grid-column: 8/20;
+  grid-row: 10/20;
+} */
+
 #___gatsby,
 #gatsby-focus-wrapper {
   height: 100%;
@@ -744,4 +807,119 @@ main {
   max-width: calc(1100px - 80vh);
   min-height: 440px;
   line-height: 1.3;
+}
+
+.frame {
+  padding: 1rem 5vw;
+  position: relative;
+  z-index: 1000;
+}
+
+.frame__title {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  font-weight: normal;
+}
+
+.frame__links {
+  display: inline;
+}
+
+.frame__links a {
+  color: var(--color-orange);
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.frame__links a:not(:last-child),
+.frame__demos a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.frame__demos {
+  margin: 1rem 0;
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+@media screen and (min-width: 53em) {
+  .frame {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-content: space-between;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding: 1rem 1.5rem;
+    grid-gap: 6vw;
+    pointer-events: none;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "title links ..."
+      "... ... ..."
+      "... ... ...";
+  }
+  .frame__title-wrap {
+    grid-area: title;
+    display: flex;
+  }
+  .frame__title {
+    margin: 0;
+  }
+  .frame__tagline {
+    position: relative;
+    margin: 0 0 0 1rem;
+    padding: 0 0 0 1rem;
+    opacity: 0.5;
+  }
+  .frame__demos {
+    margin: 0;
+    grid-area: demos;
+    justify-self: end;
+  }
+  .frame__links {
+    grid-area: links;
+    padding: 0;
+  }
+  .frame a {
+    pointer-events: auto;
+  }
+}
+
+.subjects-menu {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+table,
+.writing-row {
+  grid-column: 5/10;
+  z-index: 99;
+}
+
+table {
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+.essay-img {
+  -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
+  filter: blur(1px);
+}
+
+.flex {
+  display: flex;
+}
+
+.lg-value {
+  font-size: 85px;
+  display: block;
 }
