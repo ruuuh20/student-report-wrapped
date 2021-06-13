@@ -78,7 +78,9 @@ const IndexPage = () => {
 
   const handleClickSubject = () => {
     setWritingOpen(true)
-    console.log("open")
+    gsap.timeline().to(".grid", {
+      opacity: 0,
+    })
   }
 
   return (

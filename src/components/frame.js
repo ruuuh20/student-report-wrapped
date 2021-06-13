@@ -7,14 +7,14 @@ const Frame = () => {
         <h1 className="frame__title">PEAK Edu</h1>
       </div>
       <div className="frame__links">
-        <a href="https://tympanus.net/Development/3DGridContentPreview/">
+        <a href="#">
           Spring 2021
         </a>
-        <a href="https://tympanus.net/codrops/?p=54253">English 7</a>
-        <a href="https://github.com/codrops/3DGridContentPreview">John Smith</a>
+        <a href="#">English 7</a>
+        <a href="#">John Smith</a>
       </div>
       <div className="frame__demos">
-        <a href="#">Updated: May 2021</a>
+        <span>Updated: May 2021</span>
       </div>
     </div>
   )

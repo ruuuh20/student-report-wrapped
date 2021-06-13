@@ -2,6 +2,8 @@ import React, { useMemo, useRef, useState } from "react"
 import { useTable } from "react-table"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import WritingBar from "./writingBar"
+import ModalImage from "react-modal-image"
 
 const Writing = ({ handleCloseButton }) => {
   const contentfulData = useStaticQuery(graphql`
@@ -25,6 +27,11 @@ const Writing = ({ handleCloseButton }) => {
 
   const data = React.useMemo(
     () => [
+      {
+        col1: "3/15",
+        col2: "Book Essay",
+        col3: "✓ Completed",
+      },
       {
         col1: "3/22",
         col2: "NYT Outline",
@@ -96,35 +103,84 @@ const Writing = ({ handleCloseButton }) => {
   } = useTable({ columns, data })
   return (
     <div
+      className="writing-wrapper"
       style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: "0 25px",
+        // display: "flex",
+        // flexDirection: "column",
+        padding: "0 20px",
         margin: "0 auto",
         zIndex: "999",
-        maxWidth: "960px",
+        maxWidth: "980px",
+        display: "block",
+        minHeight: "90vh",
       }}
     >
+      <button className="back-arrow" onClick={handleCloseButton}>
+        <span class="button__icon">Go back</span>
+      </button>
       <div
-        className="values-container"
+        className="bg-circle"
+        style={{ clipPath: "circle(55% at 75% 50%)" }}
+      ></div>
+      <div className="headline row">
+        <h2>Your writing score improved since the last report!</h2>
+      </div>
+      <div
+        className="values-container row"
         style={{
           display: "flex",
         }}
       >
-        <div style={{ zIndex: "999" }}>
+        <div className="values-item" style={{ zIndex: "999" }}>
           Your average is<span className="lg-value">92%</span>
         </div>
-        <div style={{ zIndex: "999" }}>
+        <div className="values-item" style={{ zIndex: "999" }}>
           Your essay score is <span className="lg-value">94%</span>
         </div>
-        <div style={{ zIndex: "999" }}>
+        <div className="values-item" style={{ zIndex: "999" }}>
           Attendance <span className="lg-value">9/10</span>
         </div>
-        <div style={{ zIndex: "999" }}>
+        <div className="values-item" style={{ zIndex: "999" }}>
           Homework <span className="lg-value">7/15</span>
         </div>
       </div>
+      <section>
+        <div className="row chart-container">
+          <WritingBar />
+        </div>
+      </section>
+      <div className="row list-container">
+        <h3>Based on your essay feedback...</h3>
+        <div className="face-s"></div>
+        <div className="list-wrap-s">
+          <div className="sub-headline">Your strengths are:</div>
+          <div className="list-item item-s">&#8226; paragraph development</div>
+          <div className="list-item item-s">
+            &#8226; use of evidence and support
+          </div>
+          <div className="list-item item-s">&#8226; word choice</div>
+        </div>
+      </div>
+      <div className="row list-container">
+        <div className="face-w"></div>
+        <div className="list-wrap-w">
+          <div class="sub-headline">Some things you could work on:</div>
+          <div className="list-item item-w">
+            &#8226; organizing ideas in <br />a logical sequence
+          </div>
+          <div className="list-item item-w">&#8226; grammar errors</div>
+          <div className="list-item item-w">&#8226; proofreading</div>
+        </div>
+      </div>
+
       <div className="row">
+        <div className="headline">
+          <p>
+            You missed 1 assignment, but you completed almost all writing
+            assignments, including book reports and NYT essays. You also worked
+            on revisions.
+          </p>
+        </div>
         <table
           {...getTableProps()}
           style={{ border: "solid 1px white", maxWidth: "450px" }}
@@ -174,10 +230,16 @@ const Writing = ({ handleCloseButton }) => {
         </table>
       </div>
 
-      <button style={{ zIndex: "999" }} onClick={handleCloseButton}>
-        Close
-      </button>
-      <div className="flex row">
+      <section>
+        <div className="headline">
+          <p>
+            You can take a look at some of your essays and feedback (click to
+            view larger)
+          </p>
+        </div>
+      </section>
+
+      <div className="grid-12 essays">
         {contentfulData.allContentfulWritingAssignment.edges.map(
           (grid, index) => (
             <Grid
@@ -191,11 +253,6 @@ const Writing = ({ handleCloseButton }) => {
             />
           )
         )}
-      </div>
-      <div className="flex row">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At possimus ea
-        esse inventore nemo adipisci qui eveniet omnis iusto mollitia non cum
-        velit recusandae consequatur, porro nam unde eos quisquam!
       </div>
     </div>
   )
@@ -227,7 +284,13 @@ const Grid = ({
         data-title="Evenner"
       >
         <div>{title}</div>
-        <GatsbyImage className="essay-img" image={image1} alt={title} />
+        {/* <GatsbyImage className="essay-img" image={image1} alt={title} /> */}
+        <ModalImage
+          small={imageUrl}
+          medium={imageUrl}
+          hideDownload={true}
+          alt={title}
+        />
       </a>
     </>
   )
