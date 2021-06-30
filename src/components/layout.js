@@ -26,19 +26,19 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
       <Frame />
-      <div
-        style={{
-          // margin: `0 auto`,
-          // maxWidth: 960,
-          height: `100%`,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+      <div>
         <main>{children}</main>
-    
       </div>
+      <footer>
+        {" "}
+        <div className="container footer-inner">
+          <small>updated: May 2021</small>
+          
+          <small>&copy; peakeducation</small>
+        </div>
+      </footer>
     </>
   )
 }

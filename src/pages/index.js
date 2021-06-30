@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Writing from "../components/writing"
+import Reading from "../components/reading"
 
 import { gsap } from "gsap"
 
@@ -32,7 +33,8 @@ const IndexPage = () => {
   `)
 
   const [contentOpen, setContentOpen] = useState(false)
-  const [writingOpen, setWritingOpen] = useState(false)
+  // const [writingOpen, setWritingOpen] = useState(false)
+  const [subjectOpen, setSubjectOpen] = useState("home")
 
   const image = getImage(data.allContentfulBook.edges[0].node.thumbnail)
 
@@ -62,6 +64,7 @@ const IndexPage = () => {
   }
 
   const handleBackButton = e => {
+    setSubjectOpen("home")
     gsap
       .timeline()
       .to(".preview", {
@@ -73,41 +76,155 @@ const IndexPage = () => {
   }
 
   const handleCloseButton = e => {
-    setWritingOpen(false)
+    setSubjectOpen("home")
+    gsap.timeline().to(".grid", {
+      opacity: 1,
+    })
+    // setWritingOpen(false)
   }
 
-  const handleClickSubject = () => {
-    setWritingOpen(true)
+  const handleClickSubject = e => {
+    console.log(e.currentTarget)
+    let subject = e.currentTarget.dataset.subject
+
+    setSubjectOpen(subject)
+
+    // setWritingOpen(true)
+
     gsap.timeline().to(".grid", {
       opacity: 0,
     })
   }
 
+  let subj
+  if (subjectOpen === "writing") {
+    subj = <Writing handleCloseButton={handleCloseButton} />
+  } else if (subjectOpen === "reading") {
+    subj = <Reading handleCloseButton={handleCloseButton} />
+  } else {
+    subj = (
+      <div className="center-container">
+        <div className="sidebar">
+          <ul>
+            <li>
+              <span className="one">John Smith</span>
+            </li>
+            <li>
+              <span className="two">English 6</span>
+            </li>
+            <li>
+              <span className="three">Paul L</span>
+            </li>
+          </ul>
+        </div>
+        <div className="content">
+          <span className="intro">
+            Hi John, welcome to your{" "}
+            <span className="accent">Student Report Wrapped</span>
+          </span>
+          <br />
+          <span style={{ paddingLeft: "5vw" }}>Choose a subject:</span>
+          <nav class="menu">
+            <div
+              class="menu__item"
+              data-subject="reading"
+              onClick={handleClickSubject}
+            >
+              <div class="menu__item-link">Reading</div>
+
+              <div class="marquee">
+                <div class="marquee__inner" aria-hidden="true">
+                  <span>Reading</span>
+                  <span>Reading</span>
+                  <span>Reading</span>
+                  <span>Reading</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="menu__item"
+              data-subject="writing"
+              onClick={handleClickSubject}
+            >
+              <a class="menu__item-link">Writing</a>
+
+              <div class="marquee">
+                <div class="marquee__inner" aria-hidden="true">
+                  <span>Writing</span>
+                  <span>Writing</span>
+                  <span>Writing</span>
+                  <span>Writing</span>
+                </div>
+              </div>
+            </div>
+            <div class="menu__item">
+              <a class="menu__item-link">Vocabulary</a>
+
+              <div class="marquee">
+                <div class="marquee__inner" aria-hidden="true">
+                  <span>Vocabulary</span>
+                  <span>Vocabulary</span>
+                  <span>Vocabulary</span>
+                  <span>Vocabulary</span>
+                </div>
+              </div>
+            </div>
+            <div class="menu__item">
+              <a class="menu__item-link">Best Essays</a>
+
+              <div class="marquee">
+                <div class="marquee__inner" aria-hidden="true">
+                  <span>Best Essays</span>
+                  <span>Best Essays</span>
+                  <span>Best Essays</span>
+                  <span>Best Essays</span>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <Layout>
       <Seo title="Home" />
-
       <div className="main-content">
-        {writingOpen ? (
+        {subj && subj}
+        {/* {writingOpen ? (
           <Writing handleCloseButton={handleCloseButton} />
         ) : (
           <div className="center-container">
             <div
               style={{ zIndex: "999" }}
               className="subjects-menu"
+              data-subject="writing"
               onClick={handleClickSubject}
             >
               Writing
+            </div>
+            <div
+              style={{ zIndex: "999" }}
+              className="subjects-menu"
+              onClick={handleClickSubject}
+            >
+              Reading
             </div>
             <div className="content">
               Welcome! This is your progress report for the April to May
             </div>
           </div>
-        )}
-        <div className="grid">
-          <div className="menu name">
+        )} */}
+
+        {/* <div className="grid">
+          <div className="menu student-name">
             <div className="first-name">John</div>
             <div className="last-name">Smith</div>
+          </div>
+          <div className="menu name">
+            <div className="last-name">English 7</div>
+            <div className="first-name">Instructor: Paul L</div>
           </div>
           {data.allContentfulBook.edges.map((grid, index) => (
             <Grid
@@ -125,40 +242,7 @@ const IndexPage = () => {
             className="grid-item pos-1"
             style={{ display: "grid" }}
           ></a>
-        </div>
-        <div className="preview">
-          <div className="preview__item" id="preview-1">
-            <button
-              className="preview__item-back unbutton"
-              onClick={handleBackButton}
-            >
-              <span>Back</span>
-            </button>
-            <div className="preview__item-imgwrap">
-              <GatsbyImage image={image} alt="a" />
-              image
-            </div>
-            <h2 data-splitting class="preview__item-title">
-              Mohanneles
-            </h2>
-            <div className="preview__item-content">
-              <div className="preview__item-meta">
-                <span>Acapulco, Mexico</span>
-                <span>15/05/2025</span>
-              </div>
-              <p className="preview__item-description">
-                Had a barney with the inlaws a bit miffed pigeons in Trafalgar
-                Square nigh on't goggle box chav hard cheese old boy, marvelous
-                Moriarty pulled a right corker squiffy fork out, a tad
-                stupendous chaps doing my head in ee bah gum.
-              </p>
-              <button className="preview__item-info unbutton">+ Info</button>
-              <button className="preview__item-button">Buy Tickets</button>
-            </div>
-          </div>
-        </div>
-
-        <div></div>
+        </div> */}
       </div>
     </Layout>
   )
@@ -174,7 +258,6 @@ const Grid = ({
   handleGridItem,
 }) => {
   const grid = useRef()
-  const [hoverState, setHoverState] = useState(false)
 
   let image1 = getImage(image)
 

@@ -6,3 +6,4 @@
 
 // You can delete this file if you're not using it
 import "@fontsource/nunito" // Defaults to weight 400 with all styles included.
+import "@fontsource/rubik"

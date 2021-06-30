@@ -4,18 +4,21 @@ const Frame = () => {
   return (
     <div className="frame">
       <div className="frame__title-wrap">
-        <h1 className="frame__title">PEAK Edu</h1>
+        <a href="/" className="frame__title">
+          PEAK
+        </a>
       </div>
       <div className="frame__links">
-        <a href="#">
-          Spring 2021
-        </a>
-        <a href="#">English 7</a>
-        <a href="#">John Smith</a>
+        <span>Spring 2021</span>
+        <span>Eng 6</span>
+        <span>John Smith</span>
       </div>
-      <div className="frame__demos">
-        <span>Updated: May 2021</span>
+      <div className="frame__user">
+        <span>Student</span>
       </div>
+      {/* <div className="frame__demos">
+        <small>Updated: May 2021</small>
+      </div> */}
     </div>
   )
 }

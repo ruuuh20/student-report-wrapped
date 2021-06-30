@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@fontsource/nunito": "^4.4.5",
+    "@fontsource/rubik": "^4.4.5",
     "chart.js": "^3.3.2",
     "dotenv": "^8.2.0",
     "gatsby": "^3.4.0",
