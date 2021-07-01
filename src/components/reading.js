@@ -1,7 +1,7 @@
-import React, { useMemo, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { useTable } from "react-table"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
+import { StaticImage, getImage } from "gatsby-plugin-image"
 import WritingBar from "./writingBar"
 import ModalImage from "react-modal-image"
 import icon from "../images/pencil.svg"
@@ -151,11 +151,7 @@ const Reading = ({ handleCloseButton }) => {
     <div
       className="reading-wrapper"
       style={{
-        // padding: "80px 20px",
         margin: "0 auto",
-
-        // maxWidth: "1020px",
-        // display: "block",
       }}
     >
       <section className="reading-hero">
@@ -510,7 +506,7 @@ const Reading = ({ handleCloseButton }) => {
 const Grid = ({
   title,
   index,
-  video,
+
   imageUrl,
   image,
   handleClick,
