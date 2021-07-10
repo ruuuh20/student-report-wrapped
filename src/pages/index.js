@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Writing from "../components/writing"
 import Reading from "../components/reading"
+import Vocabulary from "../components/vocabulary"
 
 import { gsap } from "gsap"
 
@@ -32,6 +33,25 @@ const IndexPage = () => {
     }
   `)
 
+   const showMenuItems=() => {
+        
+
+        gsap.timeline()
+        .set('.menu__item a', {x: '20%', opacity: 0})
+        .to('.menu__item a', {
+            duration: 1,
+            ease: 'power3',
+            x: '0%',
+            stagger: 0.05
+        })
+        .to('.menu__item a', {
+            duration: 0.4,
+            ease: 'power1',
+            opacity: 1,
+            stagger: 0.05
+        }, 0);
+    }
+
   const [contentOpen, setContentOpen] = useState(false)
   // const [writingOpen, setWritingOpen] = useState(false)
   const [subjectOpen, setSubjectOpen] = useState("home")
@@ -40,6 +60,14 @@ const IndexPage = () => {
 
   useEffect(() => {
     // gsap.set(".preview__item-content", { opacity: 0 })
+            const menuItems = [];
+        // initialize the MenuItems
+
+        
+        // show the menu items (initial animation where each menu item gets revealed)
+        showMenuItems();
+
+
   })
 
   // const title = e.target.dataset.title
@@ -84,7 +112,7 @@ const IndexPage = () => {
   }
 
   const handleClickSubject = e => {
-    console.log(e.currentTarget)
+    
     let subject = e.currentTarget.dataset.subject
 
     setSubjectOpen(subject)
@@ -101,7 +129,11 @@ const IndexPage = () => {
     subj = <Writing handleCloseButton={handleCloseButton} />
   } else if (subjectOpen === "reading") {
     subj = <Reading handleCloseButton={handleCloseButton} />
-  } else {
+  } else if (subjectOpen === 'vocabulary') {
+    subj = <Vocabulary handleCloseButton={handleCloseButton}/>
+  }
+  
+  else {
     subj = (
       <div className="center-container">
         <div className="sidebar">
@@ -124,16 +156,16 @@ const IndexPage = () => {
           </span>
           <br />
           <span style={{ paddingLeft: "5vw" }}>Choose a subject:</span>
-          <nav class="menu">
+          <nav className="menu">
             <div
-              class="menu__item"
+              className="menu__item"
               data-subject="reading"
               onClick={handleClickSubject}
             >
-              <div class="menu__item-link">Reading</div>
+              <div className="menu__item-link">Reading</div>
 
-              <div class="marquee">
-                <div class="marquee__inner" aria-hidden="true">
+              <div className="marquee">
+                <div className="marquee__inner" aria-hidden="true">
                   <span>Reading</span>
                   <span>Reading</span>
                   <span>Reading</span>
@@ -142,14 +174,14 @@ const IndexPage = () => {
               </div>
             </div>
             <div
-              class="menu__item"
+              className="menu__item"
               data-subject="writing"
               onClick={handleClickSubject}
             >
-              <a class="menu__item-link">Writing</a>
+              <div className="menu__item-link">Writing</div>
 
-              <div class="marquee">
-                <div class="marquee__inner" aria-hidden="true">
+              <div className="marquee">
+                <div className="marquee__inner" aria-hidden="true">
                   <span>Writing</span>
                   <span>Writing</span>
                   <span>Writing</span>
@@ -157,11 +189,11 @@ const IndexPage = () => {
                 </div>
               </div>
             </div>
-            <div class="menu__item">
-              <a class="menu__item-link">Vocabulary</a>
+            <div className="menu__item">
+              <div className="menu__item-link">Vocabulary</div>
 
-              <div class="marquee">
-                <div class="marquee__inner" aria-hidden="true">
+              <div className="marquee">
+                <div className="marquee__inner" aria-hidden="true">
                   <span>Vocabulary</span>
                   <span>Vocabulary</span>
                   <span>Vocabulary</span>
@@ -169,11 +201,11 @@ const IndexPage = () => {
                 </div>
               </div>
             </div>
-            <div class="menu__item">
-              <a class="menu__item-link">Best Essays</a>
+            <div className="menu__item">
+              <div className="menu__item-link">Best Essays</div>
 
-              <div class="marquee">
-                <div class="marquee__inner" aria-hidden="true">
+              <div className="marquee">
+                <div className="marquee__inner" aria-hidden="true">
                   <span>Best Essays</span>
                   <span>Best Essays</span>
                   <span>Best Essays</span>

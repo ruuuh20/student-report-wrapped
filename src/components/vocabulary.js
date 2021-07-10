@@ -8,7 +8,7 @@ import icon from "../images/pencil.svg"
 import arrowIcon from "../images/arrow-right.svg"
 import checkIcon from "../images/check-circle.svg"
 
-const Writing = ({ handleCloseButton }) => {
+const Vocabulary = ({ handleCloseButton }) => {
   const contentfulData = useStaticQuery(graphql`
     query {
       allContentfulWritingAssignment(sort: { fields: createdAt }) {
@@ -132,7 +132,7 @@ const Writing = ({ handleCloseButton }) => {
       <section>
         <div className="container">
           <button className="back-arrow" onClick={handleCloseButton}>
-            <span className="button__icon">Go back</span>
+            <span class="button__icon">Go back</span>
           </button>
 
           <div
@@ -140,7 +140,7 @@ const Writing = ({ handleCloseButton }) => {
             style={{ clipPath: "circle(55% at 75% 50%)" }}
           ></div>
           <div className="headline row">
-            <h2>Your writing score improved since the last report!</h2>
+            <h2>Your vocabulary grade improved since the last report!</h2>
           </div>
           <div
             className="values-container row"
@@ -168,6 +168,10 @@ const Writing = ({ handleCloseButton }) => {
           <WritingBar />
         </div>
       </section>
+      <div className="img-wrapper">
+        <StaticImage src="../images/vocabbook.jpg" alt="essay" />
+      </div>
+      <section></section>
       <section>
         <div className="container">
           <div className="headline">
@@ -486,4 +490,4 @@ const Grid = ({
   )
 }
 
-export default Writing
+export default Vocabulary

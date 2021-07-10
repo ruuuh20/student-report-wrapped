@@ -1,6 +1,12 @@
 :root {
   --main-color: #06c;
   --color-bg: #f7f5f0;
+  --color-lightblue: rgba(163, 205, 216, 1);
+  --color-heath: rgba(255, 251, 230, 1);
+  --color-saffron: rgba(242, 204, 56, 1);
+  --color-indigo: rgba(80, 105, 212, 1);
+  --color-tea: rgba(193, 184, 172, 1);
+  --color-brown: rgb(120, 75, 55);
 }
 
 html {
@@ -10,10 +16,13 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  scroll-behavior: smooth;
 }
 body {
   background: var(--color-bg);
-  background: #ece7ce;
+  /* background: #ece7ce; */
+  background: #e6e6e6;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,6 +35,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  overscroll-behavior-y: none;
 }
 article,
 aside,
@@ -639,10 +649,38 @@ html {
   position: relative;
   align-items: center; */
 }
+.main-content {
+  padding-top: 3.5rem;
+}
 
 @media screen and (min-width: 53em) {
   .main-content {
     /* height: 100%; */
+  }
+  .scroll-text {
+    font-family: "Georgia";
+    font-size: 12rem;
+    font-weight: 700;
+    -webkit-text-stroke: 3px var(--color-blue);
+    text-stroke: 3px var(--color-blue);
+    white-space: nowrap;
+
+    color: transparent;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  .outline-white {
+    -webkit-text-stroke: 3px #eeeeee;
+    text-stroke: 3px #eeeeee;
+  }
+
+  .scroll-left {
+    margin-left: -90vw;
+  }
+  .scroll-right {
+    margin-right: -90vw;
+    text-align: right;
   }
 }
 .grid {
@@ -710,7 +748,7 @@ html {
   /* position: absolute; */
   grid-column: 4/12;
   margin: 0;
-  color: darkslategrey;
+  /* color: darkslategrey; */
 }
 
 .center-container .content .intro {
@@ -844,13 +882,13 @@ main {
   font-family: "Rubik";
 }
 
-.frame__title {
+.logo-title {
   font-size: 1.5rem;
   margin: 0 0 1rem;
   font-weight: 600;
   letter-spacing: 1.2px;
   text-decoration: none;
-  color: darkslategrey;
+  color: black;
 }
 
 .frame__links {
@@ -899,7 +937,7 @@ main {
     grid-area: title;
     display: flex;
   }
-  .frame__title {
+  .logo-title {
     margin: 0;
   }
   .frame__tagline {
@@ -977,14 +1015,19 @@ table {
   /* max-width: 90%; */
 }
 
+.headline-p p {
+  font-size: 1.25rem;
+}
+
 .lg-value {
   font-size: 75px;
   display: block;
   margin-top: 1.5rem;
   font-weight: 600;
   /* color: var(--color-orange); */
-  color: #ffc864;
-  color: rgb(220, 240, 207);
+  /* color: #ffc864; */
+  /* color: rgb(220, 240, 207); */
+  color: var(--color-blue);
 }
 
 .reading {
@@ -1004,7 +1047,8 @@ table {
   font-size: 4rem;
   font-family: "Rubik";
   font-weight: 300;
-  color: #ffe9f3;
+  /* color: #ffe9f3; */
+  color: rgb(36, 36, 36);
 }
 
 .headline p {
@@ -1015,13 +1059,15 @@ table {
   text-align: center;
   margin: 0 auto;
   padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 
 .values-item {
   width: 25%;
   font-weight: 600;
 
-  color: rgb(220, 240, 207);
+  /* color: rgb(220, 240, 207); */
+  color: var(--color-blue);
 }
 
 /* .button__icon {
@@ -1202,11 +1248,13 @@ button {
 }
 
 .left {
-  background: var(--color-green);
+  /* background: var(--color-green); */
+  background: var(--color-blue);
 }
 
 .right {
-  background: var(--color-yellow);
+  /* background: var(--color-yellow); */
+  background: var(--color-saffron);
 }
 
 .list-wrap-s {
@@ -1269,11 +1317,12 @@ button {
 }
 
 .item-s {
-  color: rgba(255, 159, 64, 0.9);
+  /* color: rgba(255, 159, 64, 0.9); */
+  color: var(--color-saffron);
 }
 
 .item-w {
-  color: var(--color-green);
+  color: var(--color-blue);
 }
 
 .writing-wrapper,
@@ -1288,7 +1337,7 @@ button {
   height: 100%;
   background: rgba(247, 247, 247, 0.9);
   transform: matrix(1, 0, 0, 1, 0, 0);
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 1rem;
 }
 
 .link__graphic--stroke path {
@@ -1543,7 +1592,7 @@ button {
 }
 
 .container {
-  padding: 2rem 1rem;
+  padding: 2.2rem 0.5rem;
   max-width: 1020px;
   margin: 0 auto;
   position: relative;
@@ -1567,7 +1616,8 @@ button {
     #4364f7,
     #0052d4 */
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: rgb(16, 80, 153);
+  /* background: rgb(16, 80, 153); */
+  background: var(--color-lightblue);
 }
 
 .col-3 {
@@ -1675,7 +1725,7 @@ button {
   padding-right: 2%;
 }
 .arrow-right {
-  width: 3%;
+  width: 5%;
 }
 
 .highlight {
@@ -1688,10 +1738,18 @@ button {
 }
 
 .img-wrapper {
-  padding: 1rem;
-  background: var(--color-main);
+  padding: 1.5rem;
+  background: var(--color-lightblue);
   -webkit-filter: blur(1px); /* Safari 6.0 - 9.0 */
+}
+
+.blur {
   filter: blur(1px);
+}
+
+.title-md {
+  font-size: 1.25rem;
+  text-align: center;
 }
 
 .sidebar {
@@ -1720,7 +1778,7 @@ button {
 }
 
 .accent {
-  padding-left: 7px;
+  padding-left: 8px;
   border-radius: 0px;
   background-image: url(../images/accent1.png);
   background-position: 70% 100%;
@@ -1783,4 +1841,93 @@ button {
   height: 100%;
   background: rgba(228, 228, 228, 0.5);
   transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.scroll-text {
+  text-transform: uppercase;
+}
+
+.relative {
+  position: relative;
+  overflow: hidden;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
+
+span.highlight1 {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.highlight1:before {
+  content: "";
+  position: absolute;
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  animation-iteration-count: infinite;
+  animation-delay: inherit;
+}
+
+.highlight1:before {
+  content: "";
+  position: absolute;
+  background-color: yellow;
+  box-shadow: 5px 0px 5px orange;
+  animation-name: highlight-1;
+  animation-iteration-count: infinite;
+}
+
+/* p{
+  &:nth-of-type(1) span:before{
+    animation-delay: 0s;
+  }
+  &:nth-of-type(2) span:before{
+    animation-delay: 1s;
+  }
+  &:nth-of-type(3) span:before{
+    animation-delay: 2s;
+    background-color: red;
+    height: 2px;
+    top: 50%;
+  }
+} */
+
+@keyframes highlight-1 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+@keyframes highlight-2 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+}
+
+.scroll-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+section.part-section {
+  background: var(--color-saffron);
 }

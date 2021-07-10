@@ -48,7 +48,7 @@ const WritingBar = () => (
       <h4 className='chart-headline'>Your average went up from last time</h4>
       
     </div>
-    <div class="chart-wrapper">
+    <div className="chart-wrapper">
       <Bar data={data}
         options={options} />
     </div>

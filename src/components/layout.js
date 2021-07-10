@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import Frame from "./frame"
 import "./layout.css"
+import SmoothScroll from "./smoothScroll"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -28,9 +29,11 @@ const Layout = ({ children }) => {
     <>
       {/* <Header siteTitle={data.site.siteMetadata?.title || `Title`} /> */}
       <Frame />
+      <SmoothScroll>
       <div>
         <main>{children}</main>
       </div>
+      </SmoothScroll>
       <footer>
         {" "}
         <div className="container footer-inner">

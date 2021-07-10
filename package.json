@@ -9,6 +9,7 @@
     "@fontsource/rubik": "^4.4.5",
     "chart.js": "^3.3.2",
     "dotenv": "^8.2.0",
+    "framer-motion": "^4.1.17",
     "gatsby": "^3.4.0",
     "gatsby-plugin-gatsby-cloud": "^2.4.1",
     "gatsby-plugin-image": "^1.4.0",
@@ -25,8 +26,10 @@
     "react-chartjs-2": "^3.0.3",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-intersection-observer": "^8.32.0",
     "react-modal-image": "^2.5.0",
-    "react-table": "^7.7.0"
+    "react-table": "^7.7.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "prettier": "2.2.1"

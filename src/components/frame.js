@@ -4,7 +4,7 @@ const Frame = () => {
   return (
     <div className="frame">
       <div className="frame__title-wrap">
-        <a href="/" className="frame__title">
+        <a href="/" className="logo-title">
           PEAK
         </a>
       </div>
