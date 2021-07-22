@@ -3,10 +3,13 @@ import { useTable } from "react-table"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, getImage } from "gatsby-plugin-image"
 import WritingBar from "./writingBar"
+import LineChart from "./lineChart"
 import ModalImage from "react-modal-image"
 import icon from "../images/pencil.svg"
 import arrowIcon from "../images/arrow-right.svg"
 import checkIcon from "../images/check-circle.svg"
+import smileIcon from "../images/iconmonstr-smiley-2.svg"
+import frownIcon from "../images/iconmonstr-smiley-6.svg"
 import { motion } from "framer-motion"
 import { useInView, InView } from "react-intersection-observer"
 import { useAnimation } from "framer-motion"
@@ -251,6 +254,9 @@ const Reading = ({ handleCloseButton }) => {
           <div className="row chart-container">
             <WritingBar />
           </div>
+          <div className="row chart-container">
+            <LineChart />
+          </div>
         </section>
         <section>
           <RevealLeft>
@@ -259,13 +265,14 @@ const Reading = ({ handleCloseButton }) => {
           <div className="container">
             <div className="headline">
               <p>
-                Based on your recent book assignments and feedback, we found the
-                following:
+                Based on your most recent book assignments and feedback, we
+                found the following:
               </p>
             </div>
           </div>
           <div className="flex">
             <div className="row list-container left">
+              <img className="rotate-img" src={smileIcon} />
               <div className="list-wrap-s">
                 <div className="sub-headline">
                   <h4>
@@ -286,12 +293,13 @@ const Reading = ({ handleCloseButton }) => {
               </div>
             </div>
             <div className="row list-container right">
+              <img className="rotate-img" src={frownIcon} />
               <div className="list-wrap-w">
                 <div className="sub-headline">
                   <h4>
                     You <br />
                     could <br />
-                    improve
+                    <strong>improve</strong>
                     <br />
                     on:
                   </h4>
@@ -388,7 +396,7 @@ const Reading = ({ handleCloseButton }) => {
         </section>
         <section style={{ background: "#196A9F" }}>
           <RevealRight>
-            <span className="scroll-text scroll-right outline-white">
+            <span className="scroll-text scroll-right outline-blue">
               Homework
             </span>
           </RevealRight>
@@ -459,7 +467,7 @@ const Reading = ({ handleCloseButton }) => {
             <span className="scroll-text scroll-left">Essays</span>
           </RevealLeft>
           <div className="container">
-            <div className="flex" ref={ref}>
+            <div className="flex" ref={ref} style={{ paddingTop: "1rem" }}>
               <div className="headline-s">
                 <p>You read these books over the last few months...</p>
               </div>
@@ -527,23 +535,11 @@ const Reading = ({ handleCloseButton }) => {
                   You participated and contributed a lot to the class.
                 </p>
               </div>
-              <div
-                className="values-item"
-                style={{ color: "#F2CC39", textAlign: "center" }}
-              >
-                Participation{" "}
-                <span className="lg-value" style={{ color: "#F2CC39" }}>
-                  A
-                </span>
+              <div className="values-item" style={{ textAlign: "center" }}>
+                Participation <span className="lg-value">A</span>
               </div>
-              <div
-                className="values-item"
-                style={{ color: "#F2CC39", textAlign: "center" }}
-              >
-                Attendance{" "}
-                <span className="lg-value" style={{ color: "#F2CC39" }}>
-                  10/10
-                </span>
+              <div className="values-item" style={{ textAlign: "center" }}>
+                Attendance <span className="lg-value">10/10</span>
               </div>
             </div>
             <div className="flex row" style={{ justifyContent: "center" }}>
@@ -663,7 +659,7 @@ const Grid = ({
         whileHover={{ scale: 1.1 }}
         className={`grid-item-writing`}
         ref={grid}
-        style={{ display: "grid" }}
+        style={{ display: "grid", textAlign: "center" }}
 
         // onMouseOver={handleGridItem}
         // onClick={handleClick}
@@ -672,7 +668,7 @@ const Grid = ({
           style={{
             fontSize: "12px",
             textTransform: "uppercase",
-            fontWeight: "400",
+            fontWeight: "600",
           }}
         >
           {title}

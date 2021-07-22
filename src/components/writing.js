@@ -3,10 +3,14 @@ import { useTable } from "react-table"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import WritingBar from "./writingBar"
+import LineChart from "./LineChart"
 import ModalImage from "react-modal-image"
 import icon from "../images/pencil.svg"
 import arrowIcon from "../images/arrow-right.svg"
 import checkIcon from "../images/check-circle.svg"
+import { motion } from "framer-motion"
+import { useInView, InView } from "react-intersection-observer"
+import { useAnimation } from "framer-motion"
 
 const Writing = ({ handleCloseButton }) => {
   const contentfulData = useStaticQuery(graphql`
@@ -119,7 +123,7 @@ const Writing = ({ handleCloseButton }) => {
     prepareRow,
   } = useTable({ columns, data })
   return (
-    <div
+    <motion.div
       className="writing-wrapper"
       style={{
         margin: "0 auto",
@@ -134,13 +138,13 @@ const Writing = ({ handleCloseButton }) => {
           <button className="back-arrow" onClick={handleCloseButton}>
             <span className="button__icon">Go back</span>
           </button>
-
+{/* 
           <div
             className="bg-circle"
             style={{ clipPath: "circle(55% at 75% 50%)" }}
-          ></div>
+          ></div> */}
           <div className="headline row">
-            <h2>Your writing score improved since the last report!</h2>
+            <h2>Your writing score improved!</h2>
           </div>
           <div
             className="values-container row"
@@ -166,6 +170,9 @@ const Writing = ({ handleCloseButton }) => {
       <section>
         <div className="row chart-container">
           <WritingBar />
+        </div>
+        <div className="row chart-container">
+          <LineChart />
         </div>
       </section>
       <section>
@@ -436,7 +443,7 @@ const Writing = ({ handleCloseButton }) => {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   )
 }
 

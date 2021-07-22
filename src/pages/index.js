@@ -1,13 +1,10 @@
 import React, { useEffect, useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Writing from "../components/writing"
-import Reading from "../components/reading"
-import Vocabulary from "../components/vocabulary"
-
+import { Link } from "gatsby"
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { gsap } from "gsap"
+import Loader from "../components/loader"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -33,281 +30,107 @@ const IndexPage = () => {
     }
   `)
 
-   const showMenuItems=() => {
-        
+  const showMenuItems = () => {
+    gsap
+      .timeline()
+      .set(".menu__item a", { x: "20%", opacity: 0 })
+      .to(".menu__item a", {
+        duration: 1,
+        ease: "power3",
+        x: "0%",
+        stagger: 0.05,
+      })
+      .to(
+        ".menu__item a",
+        {
+          duration: 0.4,
+          ease: "power1",
+          opacity: 1,
+          stagger: 0.05,
+        },
+        0
+      )
+  }
 
-        gsap.timeline()
-        .set('.menu__item a', {x: '20%', opacity: 0})
-        .to('.menu__item a', {
-            duration: 1,
-            ease: 'power3',
-            x: '0%',
-            stagger: 0.05
-        })
-        .to('.menu__item a', {
-            duration: 0.4,
-            ease: 'power1',
-            opacity: 1,
-            stagger: 0.05
-        }, 0);
-    }
-
-  const [contentOpen, setContentOpen] = useState(false)
-  // const [writingOpen, setWritingOpen] = useState(false)
-  const [subjectOpen, setSubjectOpen] = useState("home")
+  const [loading, setLoading] = useState(true)
 
   const image = getImage(data.allContentfulBook.edges[0].node.thumbnail)
 
   useEffect(() => {
     // gsap.set(".preview__item-content", { opacity: 0 })
-            const menuItems = [];
-        // initialize the MenuItems
+    const menuItems = []
+    // initialize the MenuItems
 
-        
-        // show the menu items (initial animation where each menu item gets revealed)
-        showMenuItems();
-
-
+    // show the menu items (initial animation where each menu item gets revealed)
+    showMenuItems()
   })
+
+  useEffect(() => {
+    loading
+      ? document.querySelector("body").classList.add("loading")
+      : document.querySelector("body").classList.remove("loading")
+  }, [loading])
 
   // const title = e.target.dataset.title
 
-  const handleGridItem = e => {
-    console.log(e.target)
-  }
-
-  const handleClick = e => {
-    console.log("?")
-    e.preventDefault()
-    setContentOpen(true)
-    gsap
-      .timeline()
-      .addLabel("start", 0)
-      .to(".preview", {
-        opacity: 1,
-      })
-      .to(".grid-item", {
-        opacity: 0,
-      })
-  }
-
-  const handleBackButton = e => {
-    setSubjectOpen("home")
-    gsap
-      .timeline()
-      .to(".preview", {
-        opacity: 0,
-      })
-      .to(".grid-item", {
-        opacity: 1,
-      })
-  }
-
-  const handleCloseButton = e => {
-    setSubjectOpen("home")
-    gsap.timeline().to(".grid", {
-      opacity: 1,
-    })
-    // setWritingOpen(false)
-  }
-
-  const handleClickSubject = e => {
-    
-    let subject = e.currentTarget.dataset.subject
-
-    setSubjectOpen(subject)
-
-    // setWritingOpen(true)
-
-    gsap.timeline().to(".grid", {
-      opacity: 0,
-    })
-  }
-
-  let subj
-  if (subjectOpen === "writing") {
-    subj = <Writing handleCloseButton={handleCloseButton} />
-  } else if (subjectOpen === "reading") {
-    subj = <Reading handleCloseButton={handleCloseButton} />
-  } else if (subjectOpen === 'vocabulary') {
-    subj = <Vocabulary handleCloseButton={handleCloseButton}/>
-  }
-  
-  else {
-    subj = (
-      <div className="center-container">
-        <div className="sidebar">
-          <ul>
-            <li>
-              <span className="one">John Smith</span>
-            </li>
-            <li>
-              <span className="two">English 6</span>
-            </li>
-            <li>
-              <span className="three">Paul L</span>
-            </li>
-          </ul>
-        </div>
-        <div className="content">
-          <span className="intro">
-            Hi John, welcome to your{" "}
-            <span className="accent">Student Report Wrapped</span>
-          </span>
-          <br />
-          <span style={{ paddingLeft: "5vw" }}>Choose a subject:</span>
-          <nav className="menu">
-            <div
-              className="menu__item"
-              data-subject="reading"
-              onClick={handleClickSubject}
-            >
-              <div className="menu__item-link">Reading</div>
-
-              <div className="marquee">
-                <div className="marquee__inner" aria-hidden="true">
-                  <span>Reading</span>
-                  <span>Reading</span>
-                  <span>Reading</span>
-                  <span>Reading</span>
-                </div>
-              </div>
-            </div>
-            <div
-              className="menu__item"
-              data-subject="writing"
-              onClick={handleClickSubject}
-            >
-              <div className="menu__item-link">Writing</div>
-
-              <div className="marquee">
-                <div className="marquee__inner" aria-hidden="true">
-                  <span>Writing</span>
-                  <span>Writing</span>
-                  <span>Writing</span>
-                  <span>Writing</span>
-                </div>
-              </div>
-            </div>
-            <div className="menu__item">
-              <div className="menu__item-link">Vocabulary</div>
-
-              <div className="marquee">
-                <div className="marquee__inner" aria-hidden="true">
-                  <span>Vocabulary</span>
-                  <span>Vocabulary</span>
-                  <span>Vocabulary</span>
-                  <span>Vocabulary</span>
-                </div>
-              </div>
-            </div>
-            <div className="menu__item">
-              <div className="menu__item-link">Best Essays</div>
-
-              <div className="marquee">
-                <div className="marquee__inner" aria-hidden="true">
-                  <span>Best Essays</span>
-                  <span>Best Essays</span>
-                  <span>Best Essays</span>
-                  <span>Best Essays</span>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <Layout>
-      <Seo title="Home" />
-      <div className="main-content">
-        {subj && subj}
-        {/* {writingOpen ? (
-          <Writing handleCloseButton={handleCloseButton} />
+    <AnimateSharedLayout type="crossfade">
+      <AnimatePresence>
+        {loading ? (
+          <motion.div key="loader">
+            <Loader setLoading={setLoading} />
+          </motion.div>
         ) : (
-          <div className="center-container">
-            <div
-              style={{ zIndex: "999" }}
-              className="subjects-menu"
-              data-subject="writing"
-              onClick={handleClickSubject}
-            >
-              Writing
+          <>
+            <div className="page-wrapper">
+              <motion.div
+                className="landing-title"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ ease: "easeIn", duration: 1 }}
+              >
+                <h2>
+                  Student <br /> Report <br /> Wrapped
+                </h2>
+                <div className="lines">
+                  <span>Spring 2021</span>
+                </div>
+              </motion.div>
+              <div className="col-50">
+                <motion.div
+                  className="circle-wrapper"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  layoutId="main-circle"
+                  transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
+                >
+                  <motion.div className="circle circle-1">
+                    <div className="texture"></div>
+                    <Link className="page-link" to="/student">
+                      <h5>STUDENT </h5>
+                      <span>Show me my report</span>
+                    </Link>
+                  </motion.div>
+                </motion.div>
+                <motion.div
+                  className="circle-wrapper"
+                  layoutId="main-circle-2"
+                  transition={{ ease: [0.17, 0.67, 0.83, 0.67], duration: 1.6 }}
+                >
+                  <motion.div className="circle circle-2">
+                    <div className="texture"></div>
+                    <Link className="page-link" to="/">
+                      <h5>PARENT</h5>
+                      <span>Show me my child's report</span>
+                    </Link>
+                  </motion.div>
+                </motion.div>
+              </div>
             </div>
-            <div
-              style={{ zIndex: "999" }}
-              className="subjects-menu"
-              onClick={handleClickSubject}
-            >
-              Reading
-            </div>
-            <div className="content">
-              Welcome! This is your progress report for the April to May
-            </div>
-          </div>
-        )} */}
-
-        {/* <div className="grid">
-          <div className="menu student-name">
-            <div className="first-name">John</div>
-            <div className="last-name">Smith</div>
-          </div>
-          <div className="menu name">
-            <div className="last-name">English 7</div>
-            <div className="first-name">Instructor: Paul L</div>
-          </div>
-          {data.allContentfulBook.edges.map((grid, index) => (
-            <Grid
-              index={index}
-              title={grid.node.title}
-              imageUrl={grid.node.thumbnail.file.url}
-              image={grid.node.thumbnail}
-              handleGridItem={handleGridItem}
-              handleClick={handleClick}
-              data-title="Evenner"
-            />
-          ))}
-          <a
-            href="#"
-            className="grid-item pos-1"
-            style={{ display: "grid" }}
-          ></a>
-        </div> */}
-      </div>
-    </Layout>
-  )
-}
-
-const Grid = ({
-  title,
-  index,
-  video,
-  imageUrl,
-  image,
-  handleClick,
-  handleGridItem,
-}) => {
-  const grid = useRef()
-
-  let image1 = getImage(image)
-
-  return (
-    <>
-      <a
-        className={`grid-item pos-${index}`}
-        ref={grid}
-        style={{ display: "grid" }}
-        data-title="Evenner"
-        onMouseOver={handleGridItem}
-        onClick={handleClick}
-        data-title="Evenner"
-      >
-        <div>{title}</div>
-        <GatsbyImage image={image1} alt={title} />
-      </a>
-    </>
+          </>
+        )}
+      </AnimatePresence>
+    </AnimateSharedLayout>
   )
 }
 
