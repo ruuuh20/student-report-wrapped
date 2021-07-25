@@ -14,7 +14,7 @@ import { motion } from "framer-motion"
 import { useInView, InView } from "react-intersection-observer"
 import { useAnimation } from "framer-motion"
 import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 import {
   RevealLeft,
   RevealRight,
@@ -24,7 +24,13 @@ import {
   ImageParallax,
 } from "../components/revealHelpers"
 
-const Reading = ({ handleCloseButton }) => {
+const Reading = ({ handleCloseButton, user }) => {
+  const changeText = {
+    name: user === "parent" ? `John's` : "your",
+    pronoun: user === "parent" ? `his` : "your",
+    capitalPronoun: user === "parent" ? `His` : "Your",
+    capitalPronoun2: user === "parent" ? `He` : "Your",
+  }
   const { ref, inView } = useInView({
     threshold: 0.3,
   })
@@ -225,8 +231,8 @@ const Reading = ({ handleCloseButton }) => {
             </button>
             <div className="headline row">
               <h2>
-                Let's go over your <br />
-                reading report
+                Let's go over {changeText.name} <br />
+                <span className="underline">reading</span> report
               </h2>
             </div>
             <div
@@ -265,8 +271,8 @@ const Reading = ({ handleCloseButton }) => {
           <div className="container">
             <div className="headline">
               <p>
-                Based on your most recent book assignments and feedback, we
-                found the following:
+                Based on {changeText.pronoun} most recent book assignments and
+                feedback, we found the following:
               </p>
             </div>
           </div>
@@ -276,7 +282,7 @@ const Reading = ({ handleCloseButton }) => {
               <div className="list-wrap-s">
                 <div className="sub-headline">
                   <h4>
-                    Your <br />
+                    {changeText.capitalPronoun} <br />
                     <strong>strengths </strong>
                     <br /> are:
                   </h4>
@@ -297,7 +303,7 @@ const Reading = ({ handleCloseButton }) => {
               <div className="list-wrap-w">
                 <div className="sub-headline">
                   <h4>
-                    You <br />
+                    {changeText.capitalPronoun2} <br />
                     could <br />
                     <strong>improve</strong>
                     <br />
@@ -335,8 +341,9 @@ const Reading = ({ handleCloseButton }) => {
                   >
                     <p>
                       <span className="highlight1">
-                        Your reading responses have shown improvement in various
-                        areas. <img width={40} src={checkIcon} alt="check" />
+                        {changeText.name} reading responses have shown
+                        improvement in various areas.{" "}
+                        <img width={40} src={checkIcon} alt="check" />
                       </span>
 
                       <span></span>
@@ -469,7 +476,10 @@ const Reading = ({ handleCloseButton }) => {
           <div className="container">
             <div className="flex" ref={ref} style={{ paddingTop: "1rem" }}>
               <div className="headline-s">
-                <p>You read these books over the last few months...</p>
+                <p>
+                  {changeText.capitalPronoun2} read these books over the last
+                  few months...
+                </p>
               </div>
               <motion.div
                 className="grid-12 books-container"
@@ -532,7 +542,7 @@ const Reading = ({ handleCloseButton }) => {
             >
               <div className="values-item col-3">
                 <p style={{ fontSize: "2rem", lineHeight: "1.5" }}>
-                  You participated and contributed a lot to the class.
+                  {changeText.name} participated and contributed to the class.
                 </p>
               </div>
               <div className="values-item" style={{ textAlign: "center" }}>
@@ -541,6 +551,16 @@ const Reading = ({ handleCloseButton }) => {
               <div className="values-item" style={{ textAlign: "center" }}>
                 Attendance <span className="lg-value">10/10</span>
               </div>
+            </div>
+            <div className="row">
+              <p>
+                During this time of distance learning, classes were held over
+                Zoom. Students had to overcome challenges during remote learning
+                and adapt to potential distractions and technology glitches The
+                transition from distance learning to remote learning hasn’t
+                always been easy but John has made the transition seamlessly and
+                had a fantastic year
+              </p>
             </div>
             <div className="flex row" style={{ justifyContent: "center" }}>
               <div className="comment-card">
@@ -628,30 +648,6 @@ const Grid = ({
   const [hoverState, setHoverState] = useState(false)
 
   let image1 = getImage(image)
-
-  // gsap.registerPlugin(ScrollTrigger)
-  // gsap.core.globals("ScrollTrigger", ScrollTrigger)
-
-  // useEffect(() => {
-  //   const element = ref.current
-  //   gsap.fromTo(
-  //     element.current,
-  //     {
-  //       opacity: 0,
-  //       y: -20,
-  //     },
-  //     {
-  //       opacity: 1,
-  //       y: 0,
-  //       scrollTrigger: {
-  //         trigger: element.current,
-  //         start: "top top",
-  //         end: "bottom center",
-  //         scrub: true,
-  //       },
-  //     }
-  //   )
-  // }, [])
 
   return (
     <>

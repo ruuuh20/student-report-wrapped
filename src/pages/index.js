@@ -84,7 +84,7 @@ const IndexPage = () => {
                 >
                   <motion.div className="circle circle-2">
                     <div className="texture"></div>
-                    <Link className="page-link" to="/">
+                    <Link className="page-link" to="/parent">
                       <h5>PARENT</h5>
                       <span>Show me my child's report</span>
                     </Link>

@@ -1,20 +1,25 @@
 import React from "react"
+import { Link } from 'gatsby'
+import userIcon from "../images/user.png"
 
-const Frame = () => {
+const Frame = ({ user = 'student' }) => {
   return (
     <div className="frame">
       <div className="frame__title-wrap">
-        <a href="/" className="logo-title">
+        <Link to="/" className="logo-title">
           PEAK
-        </a>
+        </Link>
       </div>
       <div className="frame__links">
-        <span>Spring 2021</span>
-        <span>Eng 6</span>
         <span>John Smith</span>
+        <span>Spr 2021</span>
+        <span>ENG 6 </span>
+        <span id="label-2">[distance learning]</span>
+        
       </div>
       <div className="frame__user">
-        <span>Student</span>
+        <span>    <img className="user-img" src={userIcon} /></span>
+        <Link to={`/${user}`}>{user}</Link>
       </div>
       {/* <div className="frame__demos">
         <small>Updated: May 2021</small>

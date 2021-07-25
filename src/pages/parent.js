@@ -8,10 +8,10 @@ import Reading from "../components/reading"
 import Vocabulary from "../components/vocabulary"
 
 import { gsap } from "gsap"
-import Loader from "../components/loader"
 import BestOf from "../components/bestOf"
 
-const StudentPage = () => {
+const ParentPage
+ = () => {
   const data = useStaticQuery(graphql`
     query {
       allContentfulBook {
@@ -135,7 +135,7 @@ const StudentPage = () => {
   if (subjectOpen === "writing") {
     subj = <Writing handleCloseButton={handleCloseButton} />
   } else if (subjectOpen === "reading") {
-    subj = <Reading handleCloseButton={handleCloseButton} />
+    subj = <Reading handleCloseButton={handleCloseButton} user={'parent'} />
   } else if (subjectOpen === 'vocabulary') {
     subj = <Vocabulary handleCloseButton={handleCloseButton}/>
   } else if (subjectOpen === "best") {
@@ -160,7 +160,7 @@ const StudentPage = () => {
         </div>
         <div className="content">
           <span className="intro">
-            John, welcome to your{" "}
+            John's
             <span className="accent">Student Report Wrapped</span>
           </span>
           
@@ -231,9 +231,8 @@ const StudentPage = () => {
   }
 
   return (
-   
  <>
-    <Layout user={'student'}>
+    <Layout user={'parent'}>
       <Seo title="Home" />
       <div className="main-content">
         {subj && subj}
@@ -241,7 +240,6 @@ const StudentPage = () => {
       </div>
     </Layout>
     </>
-  
   
   )
 }
@@ -277,4 +275,5 @@ const Grid = ({
   )
 }
 
-export default StudentPage
+export default ParentPage
+
