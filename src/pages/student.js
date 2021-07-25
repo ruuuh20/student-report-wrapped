@@ -9,6 +9,7 @@ import Vocabulary from "../components/vocabulary"
 
 import { gsap } from "gsap"
 import Loader from "../components/loader"
+import BestOf from "../components/bestOf"
 
 const StudentPage = () => {
   const data = useStaticQuery(graphql`
@@ -139,6 +140,8 @@ const StudentPage = () => {
     subj = <Reading handleCloseButton={handleCloseButton} />
   } else if (subjectOpen === 'vocabulary') {
     subj = <Vocabulary handleCloseButton={handleCloseButton}/>
+  } else if (subjectOpen === "best") {
+    subj = <BestOf handleCloseButton={handleCloseButton} />
   }
   
   else {
@@ -171,7 +174,6 @@ const StudentPage = () => {
               onClick={handleClickSubject}
             >
               <div className="menu__item-link">Reading</div>
-
               <div className="marquee">
                 <div className="marquee__inner" aria-hidden="true">
                   <span>Reading</span>
@@ -197,7 +199,9 @@ const StudentPage = () => {
                 </div>
               </div>
             </div>
-            <div className="menu__item">
+            <div className="menu__item" data-subject="vocabulary"
+              onClick={handleClickSubject}>
+              
               <div className="menu__item-link">Vocabulary</div>
 
               <div className="marquee">
@@ -209,7 +213,8 @@ const StudentPage = () => {
                 </div>
               </div>
             </div>
-            <div className="menu__item">
+            <div className="menu__item" data-subject="best"
+              onClick={handleClickSubject}>
               <div className="menu__item-link">Best Essays</div>
 
               <div className="marquee">
@@ -228,72 +233,18 @@ const StudentPage = () => {
   }
 
   return (
-    <>
-    {loading ? (
-      <Loader setLoading={setLoading} />
-    ) : (
+   
  <>
     <Layout>
       <Seo title="Home" />
       <div className="main-content">
         {subj && subj}
-        {/* {writingOpen ? (
-          <Writing handleCloseButton={handleCloseButton} />
-        ) : (
-          <div className="center-container">
-            <div
-              style={{ zIndex: "999" }}
-              className="subjects-menu"
-              data-subject="writing"
-              onClick={handleClickSubject}
-            >
-              Writing
-            </div>
-            <div
-              style={{ zIndex: "999" }}
-              className="subjects-menu"
-              onClick={handleClickSubject}
-            >
-              Reading
-            </div>
-            <div className="content">
-              Welcome! This is your progress report for the April to May
-            </div>
-          </div>
-        )} */}
-
-        {/* <div className="grid">
-          <div className="menu student-name">
-            <div className="first-name">John</div>
-            <div className="last-name">Smith</div>
-          </div>
-          <div className="menu name">
-            <div className="last-name">English 7</div>
-            <div className="first-name">Instructor: Paul L</div>
-          </div>
-          {data.allContentfulBook.edges.map((grid, index) => (
-            <Grid
-              index={index}
-              title={grid.node.title}
-              imageUrl={grid.node.thumbnail.file.url}
-              image={grid.node.thumbnail}
-              handleGridItem={handleGridItem}
-              handleClick={handleClick}
-              data-title="Evenner"
-            />
-          ))}
-          <a
-            href="#"
-            className="grid-item pos-1"
-            style={{ display: "grid" }}
-          ></a>
-        </div> */}
+       
       </div>
     </Layout>
     </>
-    )
-  }
-   </>
+  
+  
   )
 }
 

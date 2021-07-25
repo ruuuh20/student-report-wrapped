@@ -49,7 +49,6 @@ const options = {
 
 const LineChart = () => (
   <>
-
     <div className="chart-wrapper">
     <Line data={data} options={options} /></div>
   </>

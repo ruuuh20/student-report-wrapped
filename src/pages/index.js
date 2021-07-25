@@ -30,48 +30,13 @@ const IndexPage = () => {
     }
   `)
 
-  const showMenuItems = () => {
-    gsap
-      .timeline()
-      .set(".menu__item a", { x: "20%", opacity: 0 })
-      .to(".menu__item a", {
-        duration: 1,
-        ease: "power3",
-        x: "0%",
-        stagger: 0.05,
-      })
-      .to(
-        ".menu__item a",
-        {
-          duration: 0.4,
-          ease: "power1",
-          opacity: 1,
-          stagger: 0.05,
-        },
-        0
-      )
-  }
-
   const [loading, setLoading] = useState(true)
-
-  const image = getImage(data.allContentfulBook.edges[0].node.thumbnail)
-
-  useEffect(() => {
-    // gsap.set(".preview__item-content", { opacity: 0 })
-    const menuItems = []
-    // initialize the MenuItems
-
-    // show the menu items (initial animation where each menu item gets revealed)
-    showMenuItems()
-  })
 
   useEffect(() => {
     loading
       ? document.querySelector("body").classList.add("loading")
       : document.querySelector("body").classList.remove("loading")
   }, [loading])
-
-  // const title = e.target.dataset.title
 
   return (
     <AnimateSharedLayout type="crossfade">

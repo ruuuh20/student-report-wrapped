@@ -115,6 +115,17 @@ const Writing = ({ handleCloseButton }) => {
     []
   )
 
+  const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
+
+  const fade = {
+    initial: { opacity: 0 },
+    enter: { opacity: 1, transition },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, ...transition },
+    },
+  }
+
   const {
     getTableProps,
     getTableBodyProps,
@@ -124,6 +135,9 @@ const Writing = ({ handleCloseButton }) => {
   } = useTable({ columns, data })
   return (
     <motion.div
+      initial="initial"
+      animate="enter"
+      exit="exit"
       className="writing-wrapper"
       style={{
         margin: "0 auto",
@@ -133,37 +147,61 @@ const Writing = ({ handleCloseButton }) => {
         minHeight: "90vh",
       }}
     >
-      <section>
+      <motion.section variants={fade}>
         <div className="container">
           <button className="back-arrow" onClick={handleCloseButton}>
             <span className="button__icon">Go back</span>
           </button>
-{/* 
+          {/* 
           <div
             className="bg-circle"
             style={{ clipPath: "circle(55% at 75% 50%)" }}
           ></div> */}
           <div className="headline row">
-            <h2>Your writing score improved!</h2>
+            <h2>Your writing overview</h2>
           </div>
-          <div
-            className="values-container row"
-            style={{
-              display: "flex",
-            }}
-          >
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Your average is<span className="lg-value">92%</span>
+           <div
+              className="values-container row reading"
+              style={{
+                display: "flex",
+              }}
+            >
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Average grade<span className="lg-value">A</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Writing score <span className="lg-value">92%</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Attendance <span className="lg-value">10/10</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Homework <span className="lg-value">15/15</span>
+              </div>
             </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Your essay score is <span className="lg-value">94%</span>
-            </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Attendance <span className="lg-value">9/10</span>
-            </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Homework <span className="lg-value">7/15</span>
-            </div>
+        </div>
+      </motion.section>
+      <section>
+        <div className="container">
+          <div className="row writing-intro">
+            <p>
+              <span
+                className="highlight2"
+                data-text="Writing is a life-long skill that students will use for the rest
+              of their days. "
+              >
+                Writing is a life-long skill that students will use for the rest
+                of their days.
+              </span>
+              That’s why it’s so important that parents know how well their kids
+              are progressing in writing and what steps they can take in order
+              to improve in less-than-strong areas.
+            </p>
+            <p>
+              His greatest strength is writing. He writes with fluent
+              organization and does a phenomenal job “showing and not telling”
+              details.
+            </p>
           </div>
         </div>
       </section>

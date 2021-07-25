@@ -521,7 +521,7 @@ const Reading = ({ handleCloseButton }) => {
         </section>
         <section className="part-section">
           <RevealRight>
-            <span className="scroll-text scroll-right">Participation</span>
+            <span className="scroll-text scroll-right">Other</span>
           </RevealRight>
           <div className="container">
             <div

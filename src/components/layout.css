@@ -1060,7 +1060,7 @@ table {
 .headline h2 {
   font-size: 4rem;
   font-family: "Montserrat";
-  font-weight: 600;
+  font-weight: 400;
   /* color: #ffe9f3; */
   color: rgb(36, 36, 36);
 }
@@ -1631,7 +1631,7 @@ button {
 }
 
 .container {
-  padding: 2.2rem 0.5rem;
+  padding: 2.5rem 0.5rem;
   max-width: 1020px;
   margin: 0 auto;
   position: relative;
@@ -1785,6 +1785,9 @@ button {
 .blur {
   filter: blur(1px);
 }
+.blur2 {
+  filter: blur(3px);
+}
 
 .title-md {
   font-size: 1.25rem;
@@ -1898,13 +1901,15 @@ button {
   top: 0;
 }
 
-span.highlight1 {
+span.highlight1,
+span.highlight2 {
   overflow: hidden;
   display: inline-block;
   position: relative;
 }
 
-.highlight1:before {
+.highlight1:before,
+.highlight2:before {
   content: "";
   position: absolute;
   background-color: red;
@@ -1922,6 +1927,28 @@ span.highlight1 {
   position: absolute;
   background-color: yellow;
   box-shadow: 5px 0px 5px orange;
+  animation-name: highlight-1;
+  animation-iteration-count: infinite;
+}
+
+.highlight2:before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  background-color: red;
+  animation-name: highlight-1;
+  animation-iteration-count: infinite;
+}
+.highlight2:before {
+  /* // using the data-text method we can fully restyle the text */
+  content: attr(data-text);
+  position: absolute;
+  z-index: 10;
+  color: blue;
+  background-color: yellow;
+  text-shadow: 1px 0px 2px rgba(255, 0, 42, 0.5);
+  overflow: hidden;
+  white-space: pre;
   animation-name: highlight-1;
   animation-iteration-count: infinite;
 }
@@ -2210,4 +2237,57 @@ section.part-section {
   width: 600px;
   height: 700px;
   background-color: rgba(244, 241, 222, 0.7);
+}
+
+.best-wrapper {
+  font-family: "Montserrat";
+}
+
+.best-row {
+  /* display: flex; */
+}
+
+.essay-item {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 4rem;
+}
+
+.rounded {
+  border-radius: 16px;
+}
+
+.image-container {
+  flex: 0 1 66.6666%;
+
+  /* height: 66vw; */
+  background-color: #788087;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-container {
+  padding-right: 25%;
+}
+
+.intro-container p {
+  line-height: 1.5;
+  font-size: 20px;
+}
+
+.text-container {
+  flex: 0 1 33.333%;
+  padding: 0 2.5rem;
+}
+
+.text-title h4 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.text-title hr {
+  background: hsla(0, 0%, 0%, 0.6);
 }
