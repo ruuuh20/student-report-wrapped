@@ -18,7 +18,7 @@ const data = {
       fill: false,
       backgroundColor: 'rgb(54, 162, 235)',
       borderColor: 'rgba(54, 162, 235, 0.2)',
-    //   yAxisID: 'y-axis-2',
+      yAxisID: 'y-axis-2',
     },
   ],
 };
@@ -34,15 +34,15 @@ const options = {
         id: 'y-axis-1',
         
       },
-    //   {
-    //     type: 'linear',
-    //     display: false,
-    //     position: 'right',
-    //     id: 'y-axis-2',
-    //     gridLines: {
-    //       drawOnArea: false,
-    //     },
-    //   },
+      {
+        type: 'linear',
+        display: false,
+        position: 'right',
+        id: 'y-axis-2',
+        gridLines: {
+          drawOnArea: false,
+        },
+      },
     ],
   },
 };

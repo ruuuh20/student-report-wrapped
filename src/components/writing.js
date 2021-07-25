@@ -3,7 +3,7 @@ import { useTable } from "react-table"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import WritingBar from "./writingBar"
-import LineChart from "./LineChart"
+import LineChart from "./lineChart"
 import ModalImage from "react-modal-image"
 import icon from "../images/pencil.svg"
 import arrowIcon from "../images/arrow-right.svg"
@@ -160,25 +160,25 @@ const Writing = ({ handleCloseButton }) => {
           <div className="headline row">
             <h2>Your writing overview</h2>
           </div>
-           <div
-              className="values-container row reading"
-              style={{
-                display: "flex",
-              }}
-            >
-              <div className="values-item" style={{ zIndex: "999" }}>
-                Average grade<span className="lg-value">A</span>
-              </div>
-              <div className="values-item" style={{ zIndex: "999" }}>
-                Writing score <span className="lg-value">92%</span>
-              </div>
-              <div className="values-item" style={{ zIndex: "999" }}>
-                Attendance <span className="lg-value">10/10</span>
-              </div>
-              <div className="values-item" style={{ zIndex: "999" }}>
-                Homework <span className="lg-value">15/15</span>
-              </div>
+          <div
+            className="values-container row reading"
+            style={{
+              display: "flex",
+            }}
+          >
+            <div className="values-item" style={{ zIndex: "999" }}>
+              Average grade<span className="lg-value">A</span>
             </div>
+            <div className="values-item" style={{ zIndex: "999" }}>
+              Writing score <span className="lg-value">92%</span>
+            </div>
+            <div className="values-item" style={{ zIndex: "999" }}>
+              Attendance <span className="lg-value">10/10</span>
+            </div>
+            <div className="values-item" style={{ zIndex: "999" }}>
+              Homework <span className="lg-value">15/15</span>
+            </div>
+          </div>
         </div>
       </motion.section>
       <section>
