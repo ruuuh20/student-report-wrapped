@@ -2155,20 +2155,6 @@ section.part-section {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.circle-1-loader {
-  left: 0;
-  top: 0;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.circle-1:hover {
-  transition: 1.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform: scale(1.25) translate(-120px, 200px);
-  opacity: 0.9;
-}
-
 .circle-2 {
   top: 49%;
   right: 0;
@@ -2185,20 +2171,6 @@ section.part-section {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   opacity: 0.7;
-}
-
-.circle-2-loader {
-  /* right: 0;
-  top: 0; */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.circle-2:hover {
-  transition: 1.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform: scale(1.25) translate(-200px, -190px);
-  opacity: 0.9;
 }
 
 .circle-2-loader:hover,
@@ -2249,12 +2221,12 @@ section.part-section {
     flex-direction: column;
   }
   .landing-title {
-    height: 100%;
-    padding: 2rem 4rem;
+    height: 90%;
+    padding: 2rem 5rem;
     width: 100%;
   }
   .landing-title h2 {
-    font-size: 36px;
+    font-size: 40px;
     text-transform: uppercase;
   }
   .lines span {
@@ -2285,6 +2257,35 @@ section.part-section {
     right: -12%;
     top: 35%;
   }
+}
+
+@media screen and (max-width: 53em) {
+  .circle-1:hover {
+    transition: 1.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(1.25) translate(-120px, 200px);
+    opacity: 0.9;
+  }
+  .circle-2:hover {
+    transition: 1.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale(1.25) translate(-200px, -190px);
+    opacity: 0.9;
+  }
+}
+
+.circle-1-loader {
+  left: 0;
+  top: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle-2-loader {
+  /* right: 0;
+  top: 0; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .report-card-img {

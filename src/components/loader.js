@@ -74,9 +74,7 @@ const Loader = ({ setLoading }) => {
             >
               <div className="texture"></div>
               <Link className="page-link" to="/student">
-                {/* <h5>STUDENT </h5>
-                <span>Show me my report</span> */}
-                <h5>PEAK EDU</h5>
+                <h5>PEAK</h5>
               </Link>
             </motion.div>
           </motion.div>
