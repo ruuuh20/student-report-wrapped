@@ -5,11 +5,11 @@ import userIcon from "../images/user.png"
 const Frame = ({ user = 'student' }) => {
   return (
     <div className="frame">
-      <div className="frame__title-wrap">
+      {/* <div className="frame__title-wrap">
         <Link to="/" className="logo-title">
           PEAK
         </Link>
-      </div>
+      </div> */}
       <div className="frame__links">
         <span>John Smith</span>
         <span>Spr 2021</span>

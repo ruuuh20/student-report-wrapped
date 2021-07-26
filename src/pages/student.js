@@ -160,7 +160,7 @@ const StudentPage = () => {
         </div>
         <div className="content">
           <span className="intro">
-            John, welcome to your{" "}
+            John's{" "}
             <span className="accent">Student Report Wrapped</span>
           </span>
           

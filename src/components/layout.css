@@ -980,6 +980,12 @@ main {
   }
 }
 
+@media screen and (max-width: 53em) {
+  .frame__links {
+    font-size: 14px;
+  }
+}
+
 .frame__user a {
   text-decoration: none;
   font-size: 1rem;
@@ -1812,10 +1818,6 @@ button {
   margin-top: 1rem;
 }
 
-.sidebar ul {
-  /* line-height: 2.5; */
-}
-
 .sidebar ul li {
   list-style: none;
   text-transform: uppercase;
@@ -1835,6 +1837,7 @@ button {
   background-position: 70% 100%;
   background-size: contain;
   background-repeat: no-repeat;
+  font-weight: 600;
 }
 
 .one:before,
@@ -2141,7 +2144,7 @@ section.part-section {
 .circle-1 {
   /* right: -25%; */
   z-index: 99;
-  top: -22%;
+  top: -18%;
   background: #fceabb; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to left,
@@ -2226,7 +2229,7 @@ section.part-section {
     width: 100%;
   }
   .landing-title h2 {
-    font-size: 40px;
+    font-size: 32px;
     text-transform: uppercase;
   }
   .lines span {
@@ -2360,7 +2363,86 @@ section.part-section {
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 53em) {
+  .frame {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+  }
+  #label-2 {
+    display: none;
+  }
+  .frame__user a {
+    font-size: 0.8rem;
+    display: flex;
+    padding-left: 0.3rem;
+  }
+  .frame__user span {
+    width: 20px;
+    display: flex;
+  }
+  .frame__user span img {
+    width: 20px;
+  }
+
+  .intro:after {
+    margin-left: 0;
+  }
+}
+
 .user-img {
   margin-bottom: 0;
   margin-right: 6px;
+}
+
+@media screen and (max-width: 53em) {
+  .sidebar {
+    grid-column: 1/5;
+    margin: 0;
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  .one:before,
+  .two:before,
+  .three:before {
+    font-size: 11px;
+    color: var(--color-orange);
+    letter-spacing: 1.5px;
+    margin-bottom: 0;
+    font-weight: 400;
+  }
+
+  .center-container .content {
+    font-size: 32px;
+    line-height: 1.25;
+    /* position: absolute; */
+    grid-column: 5/13;
+  }
+
+  .center-container .content .intro {
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .accent {
+    padding-left: 0;
+  }
+  .choose {
+    font-size: 12px;
+  }
+
+  .menu {
+    line-height: 1.5;
+  }
+  .menu__item {
+    padding: 0;
+  }
+  .menu__item-link,
+  .marquee span {
+    font-size: 10vw;
+  }
 }
