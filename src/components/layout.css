@@ -652,6 +652,19 @@ html {
   padding-top: 3.5rem;
 }
 
+.scroll-text {
+  font-family: "Georgia";
+  font-size: 7rem;
+  font-weight: 700;
+  -webkit-text-stroke: 3px var(--color-blue);
+  text-stroke: 3px var(--color-blue);
+  white-space: nowrap;
+
+  color: transparent;
+  display: block;
+  box-sizing: border-box;
+}
+
 @media screen and (min-width: 53em) {
   .main-content {
     /* height: 100%; */
@@ -1017,6 +1030,10 @@ table {
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .grid-12 {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -1178,9 +1195,6 @@ button {
 
 .writing-wrapper .bg-circle {
   background: #9e9e4d;
-}
-
-.writing-wrapper {
 }
 
 .reading-wrapper .bg-circle {
@@ -2263,6 +2277,23 @@ section.part-section {
 }
 
 @media screen and (max-width: 53em) {
+  .headline h2 {
+    font-size: 58px;
+  }
+
+  .headline p {
+    font-size: 1.5rem;
+  }
+  .values-container {
+    flex-wrap: wrap;
+  }
+  .values-item {
+    width: 50%;
+    padding-top: 2rem;
+  }
+  .lg-value {
+    font-size: 60px;
+  }
   .circle-1:hover {
     transition: 1.2s all cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: scale(1.25) translate(-120px, 200px);
@@ -2373,6 +2404,11 @@ section.part-section {
   #label-2 {
     display: none;
   }
+  .frame__user {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   .frame__user a {
     font-size: 0.8rem;
     display: flex;
@@ -2380,7 +2416,6 @@ section.part-section {
   }
   .frame__user span {
     width: 20px;
-    display: flex;
   }
   .frame__user span img {
     width: 20px;
@@ -2444,5 +2479,40 @@ section.part-section {
   .menu__item-link,
   .marquee span {
     font-size: 10vw;
+  }
+  .chart-container {
+    padding-top: 2rem;
+  }
+  .chart-wrapper {
+    width: 320px;
+  }
+  .chart-headline {
+    font-size: 1.5rem;
+  }
+  .flex-m {
+    flex-direction: column;
+  }
+  .list-container {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .highlight-sm {
+    font-size: 14px;
+  }
+  .highlight-sm img {
+    width: 20px;
+  }
+  .books-container {
+    width: 100%;
+    gap: 1.2rem;
+  }
+  .headline-s {
+    width: 100%;
+  }
+  .headline-s p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 0.5rem 1rem;
   }
 }

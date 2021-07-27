@@ -12,7 +12,7 @@ const Frame = ({ user = 'student' }) => {
       </div> */}
       <div className="frame__links">
         <span>John Smith</span>
-        <span>Spr 2021</span>
+        <span>Spr 21</span>
         <span>ENG 6 </span>
         <span id="label-2">[distance learning]</span>
         
