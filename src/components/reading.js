@@ -506,7 +506,7 @@ const Reading = ({ handleCloseButton, user }) => {
         </section>
         <section>
           <div className="container">
-            <div className="flex" ref={ref1}>
+            <div className="flex flex-wrap" ref={ref1}>
               <div className="headline-s">
                 <p>
                   and wrote weekly short-answer responses (click to view larger)
@@ -540,14 +540,18 @@ const Reading = ({ handleCloseButton, user }) => {
           </RevealRight>
           <div className="container">
             <div
-              className="values-container row reading"
+              className="values-container row reading flex-wrap"
               style={{
                 display: "flex",
               }}
             >
-              <div className="values-item col-3">
-                <p style={{ fontSize: "2rem", lineHeight: "1.5" }}>
-                  {changeText.name} participated and contributed to the class.
+              <div className="">
+                <p
+                  className="headline-s"
+                  style={{ fontSize: "2rem", lineHeight: "1.5" }}
+                >
+                  Participation and Contribution{" "}
+                  <img width={40} src={checkIcon} alt="check" />
                 </p>
               </div>
               <div className="values-item" style={{ textAlign: "center" }}>
@@ -558,7 +562,7 @@ const Reading = ({ handleCloseButton, user }) => {
               </div>
             </div>
             <div className="row">
-              <p>
+              <p className="desc">
                 During this time of distance learning, classes were held over
                 Zoom. Students had to overcome challenges during remote learning
                 and adapt to potential distractions and technology glitches The

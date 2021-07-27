@@ -990,6 +990,7 @@ main {
   .frame__user {
     grid-area: user;
     display: flex;
+    align-items: flex-start;
   }
 }
 
@@ -1002,7 +1003,7 @@ main {
 .frame__user a {
   text-decoration: none;
   font-size: 1rem;
-  color: #000000;
+  color: #788087;
 }
 
 .subjects-menu {
@@ -2429,6 +2430,7 @@ section.part-section {
 .user-img {
   margin-bottom: 0;
   margin-right: 6px;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 53em) {
@@ -2515,4 +2517,14 @@ section.part-section {
     line-height: 1.5;
     padding: 0.5rem 1rem;
   }
+  .grid-item-writing {
+    padding: 0.2rem 0.5rem;
+  }
+  .closing {
+    font-size: 75px;
+  }
+}
+
+.desc {
+  line-height: 1.5;
 }
