@@ -44,10 +44,6 @@ const options = {
 
 const WritingBar = () => (
   <>
-    <div className='header'>
-      <h4 className='chart-headline'>Your average went up from last time</h4>
-      
-    </div>
     <div className="chart-wrapper">
       <Bar data={data}
         options={options} />

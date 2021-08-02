@@ -153,6 +153,7 @@ const ParentPage
             <li>
               <span className="two">English 6</span>
             </li>
+            
             <li>
               <span className="three">Paul L</span>
             </li>
@@ -163,8 +164,6 @@ const ParentPage
             John's
             <span className="accent">Student Report Wrapped</span>
           </span>
-          
-          <span className="choose">Choose a subject:</span>
           <nav className="menu">
             <div
               className="menu__item"

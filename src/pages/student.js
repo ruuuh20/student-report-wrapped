@@ -164,7 +164,7 @@ const StudentPage = () => {
             <span className="accent">Student Report Wrapped</span>
           </span>
           
-          <span className="choose">Choose a subject:</span>
+        
           <nav className="menu">
             <div
               className="menu__item"
