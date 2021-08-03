@@ -2,25 +2,25 @@ import React from 'react';
 import { Pie } from 'react-chartjs-2';
 
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', ],
+  labels: ['Homework', 'Quizzes', 'Participation', 'In-class writing' ],
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, ],
+      data: [13, 12, 8, 10,  ],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
+        'rgba(191, 192, 192, 0.2)', //gray
+        'rgba(66, 129, 164, 0.2)', //blue
+        'rgba(255, 206, 86, 0.2)', //yellow
+        'rgba(254, 147, 140, 0.2)', //red
+
        
       ],
       borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
+        'rgba(191, 192, 192, 1)',
+        'rgba(66, 129, 164, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
+        'rgba(254, 147, 140, 1)',
+       
         
       ],
       borderWidth: 1,

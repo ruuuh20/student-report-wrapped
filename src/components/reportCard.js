@@ -22,40 +22,39 @@ const ReportCard = () => {
           <div className="rc-intro-text">
             <p>
               This class aims to help students grow in their English abilities
-              by focusing on things: how to analyze good books, how to write
+              by focusing on 3 areas: how to analyze good books, how to write
               great essays, and how to use new vocabulary words.
             </p>
           </div>
         </div>
       </section>
-      <div>
-        <nav class="main-navigation">
-          <div class="menu-live-navigation-container">
-            <ul id="primary-menu" className="subjects-menu">
-              <li
-                id="menu-item-626"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"
-              >
-                <a href="https://thefour.live/schedule/">Reading</a>
-              </li>
-              <li
-                id="menu-item-551"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-551"
-              >
-                <a href="https://thefour.live/briefs/">Writing</a>
-              </li>
-              <li
-                id="menu-item-552"
-                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-552"
-              >
-                <a href="https://thefour.live/about/">Vocab</a>
-              </li>
-            </ul>
-          </div>{" "}
-        </nav>
+      <nav class="main-navigation">
+        <div class="menu-live-navigation-container">
+          <ul id="primary-menu" className="subjects-menu">
+            <li
+              id="menu-item-626"
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"
+            >
+              <a href="https://thefour.live/schedule/">Reading</a>
+            </li>
+            <li
+              id="menu-item-551"
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-551"
+            >
+              <a href="https://thefour.live/briefs/">Writing</a>
+            </li>
+            <li
+              id="menu-item-552"
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-552"
+            >
+              <a href="https://thefour.live/about/">Vocab</a>
+            </li>
+          </ul>
+        </div>{" "}
+      </nav>
+      <div className="rc-main">
+        <ReadingTab />
       </div>
-
-      <ReadingTab />
 
       <div className="grid-6">
         <div className="header-1">most popular</div>
@@ -90,6 +89,10 @@ const ReportCard = () => {
         <div className="card-grid-item-2">
           <p>hello</p>
         </div>
+      </div>
+
+      <div className="cta">
+        <h4>View More...</h4>
       </div>
     </div>
   )

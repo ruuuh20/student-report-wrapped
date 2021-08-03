@@ -45,6 +45,9 @@ const options = {
 const WritingBar = () => (
   <>
     <div className="chart-wrapper">
+      <div className='header'>
+      <h4 className='title'>Average grade</h4>
+    </div>
       <Bar data={data}
         options={options} />
     </div>

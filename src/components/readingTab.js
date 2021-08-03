@@ -7,6 +7,8 @@ import WritingBar from "./writingBar"
 import { useTable } from "react-table"
 import icon from "../images/pencil.svg"
 import PieChart from "./pieChart"
+import smileIcon from "../images/iconmonstr-smiley-2.svg"
+import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
 const ReadingTab = ({ handleCloseButton, user }) => {
   const contentfulData = useStaticQuery(graphql`
@@ -183,13 +185,17 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           <section className="rc-col rc-col-1">
             <span data-v-712d00a9="" className="line--top"></span>
             <div className="chart-container">
-              <WritingBar />
+              <PieChart />
             </div>
             <div className="chart-container">
-              <PieChart />
+              <WritingBar />
             </div>
           </section>
           <section className="rc-col rc-col-2">
+            <span data-v-712d00a9="" className="line--top"></span>
+            <div className="header">
+              <h4 className="title">Homework assignments</h4>
+            </div>
             <div className="table-wrapper">
               <table
                 {...getTableProps()}
@@ -241,7 +247,12 @@ const ReadingTab = ({ handleCloseButton, user }) => {
               </table>
             </div>
           </section>
+          {/* <section className="rc-col">
+            {" "}
+            
+          </section> */}
           <section className="rc-col rc-col-3">
+            <span data-v-712d00a9="" className="line--top"></span>
             <div className="grid-12 books-container">
               {contentfulData.allContentfulBook.edges.map((grid, index) => (
                 <Grid
@@ -256,28 +267,82 @@ const ReadingTab = ({ handleCloseButton, user }) => {
             </div>
           </section>
 
-          <section className="rc-col rc-col-4 comments-col">
+          <section className="rc-col rc-col-5 comments-col">
             <div className="comment-wrapper">
               <div className="comment-card">
                 <div className="comment-card-icon-container">
-                  <span className="comment-title">Comment</span>
+                  <span className="comment-title">Comments</span>
                   <img className="pencil-icon" src={icon} alt="icon" />
                 </div>
-                <p>
-                  John is focused in class and willingly participates in class
-                  discussions.
-                </p>
+                <p>continues to make good progress in reading comprehension</p>
+              </div>
+            </div>
+          </section>
+          <div className="rc-row rc-feedback">
+            <div className="flex flex-wrap flex-m">
+              <div className="row list-container left">
+                <img className="rotate-img" src={smileIcon} />
+                <div className="list-wrap-s">
+                  <div className="sub-headline">
+                    <h4>strengths</h4>
+                  </div>
+                  <div className="list-item item-s">
+                    &#8226; recall higher-level comprehension questions
+                  </div>
+                  <div className="list-item item-s">
+                    &#8226; use of evidence to support assertions
+                  </div>
+                  <div className="list-item item-s">
+                    &#8226; summarizes fiction texts with main ideas from the
+                    beginning, middle, and end
+                  </div>
+                </div>
+              </div>
+              <div className="row list-container right">
+                <img className="rotate-img" src={frownIcon} />
+                <div className="list-wrap-w">
+                  <div className="sub-headline">
+                    <h4>Needs improvement:</h4>
+                  </div>
+                  <div className="list-item item-w">
+                    &#8226; analysis of themes
+                  </div>
+                  <div className="list-item item-w">
+                    &#8226; depth and quality of the analysis
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rc-col rc-col-4 rc-participation">
+            <div className="rc flex">
+              <div className="values-item">
+                <span className="label">Participation</span>{" "}
+                <span className="lg-value">A-</span>
+              </div>
+              <div className="values-item">
+                <span className="label">Attendance</span>{" "}
+                <span className="lg-value">100%</span>
+              </div>
+              <div className="values-item">
                 <p>
                   John was very engaged and focused during distance learning
                   activities, and participated in discussions.
                 </p>
+                <p>
+                  {" "}
+                  <p>
+                    John is focused in class and willingly participates in class
+                    discussions.
+                  </p>
+                </p>
               </div>
             </div>
-          </section>
-          <div className="participation">
-            <div className="values-item">
-              Attendance <span className="lg-value">10/10</span>
-            </div>
+          </div>
+          <div className="rc-col rc-col-6">
+            demonstrates good progress in using a variety of reading
+            comprehension skills and strategies to understand text.
           </div>
         </div>
       </div>
