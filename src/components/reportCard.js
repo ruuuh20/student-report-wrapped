@@ -1,7 +1,66 @@
-import React from "react"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import React, { useEffect, useState, useRef } from "react"
 import ReadingTab from "./readingTab"
+import WritingTab from "./WritingTab"
 
 const ReportCard = () => {
+  const writingData = useStaticQuery(graphql`
+    query {
+      allContentfulWritingAssignment(sort: { fields: createdAt }) {
+        edges {
+          node {
+            title
+
+            thumbnail {
+              gatsbyImageData(width: 200)
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+      allContentfulRevision(sort: { fields: createdAt }) {
+        edges {
+          node {
+            title
+
+            thumbnail {
+              gatsbyImageData(width: 200)
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const [subjectOpen, setSubjectOpen] = useState("reading")
+  const [activeClass, setClass] = useState("reading")
+
+  let subj
+  if (subjectOpen === "writing") {
+    subj = <WritingTab writingData={writingData} />
+  } else if (subjectOpen === "reading") {
+    subj = <ReadingTab />
+  } else if (subjectOpen === "vocabulary") {
+    subj = "voc"
+  } else if (subjectOpen === "best") {
+    subj = "best"
+  }
+
+  const handleClickSubject = e => {
+    let subject = e.currentTarget.dataset.subject
+    setSubjectOpen(subject)
+    setClass(subject)
+
+    //  gsap.timeline().to(".grid", {
+    //    opacity: 0,
+    //  })
+  }
+
   return (
     <div className="report-card-background">
       <section className="rc-intro-wrapper">
@@ -13,7 +72,7 @@ const ReportCard = () => {
               </div>
             </div>
             <div className="intro-content">
-              <div>English 6</div>
+              <div>Class: English 6</div>
               <div>Teacher: Jane Joe</div>
             </div>
           </div>
@@ -33,66 +92,65 @@ const ReportCard = () => {
           <ul id="primary-menu" className="subjects-menu">
             <li
               id="menu-item-626"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-626"
+              className={activeClass === "reading" ? "active" : ""}
+              data-subject="reading"
+              onClick={handleClickSubject}
             >
-              <a href="https://thefour.live/schedule/">Reading</a>
+              <span>Reading</span>
             </li>
             <li
               id="menu-item-551"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-551"
+              className={activeClass === "writing" ? "active" : ""}
+              data-subject="writing"
+              onClick={handleClickSubject}
             >
-              <a href="https://thefour.live/briefs/">Writing</a>
+              <span>Writing</span>
             </li>
             <li
               id="menu-item-552"
               class="menu-item menu-item-type-post_type menu-item-object-page menu-item-552"
             >
-              <a href="https://thefour.live/about/">Vocab</a>
+              <span>Vocab</span>
             </li>
           </ul>
         </div>{" "}
       </nav>
-      <div className="rc-main">
-        <ReadingTab />
+      <div className="rc-main">{subj && subj}</div>
+      <div className="cta-details">
+        <div className="row">
+          <Link to="/">View more details about your child's report card</Link>
+        </div>
       </div>
-
+     
+      <hr />
       <div className="grid-6">
-        <div className="header-1">most popular</div>
+        <div className="header-1">Previous reports</div>
         <div className="card-grid-item-1">
-          <p>hello</p>
-        </div>
-        <div className="card-grid-item-1">
-          <p>hello</p>
+          <span>Jan '21</span>
         </div>
         <div className="card-grid-item-1">
-          <p>hello</p>
+          <span>Fall '20</span>
         </div>
         <div className="card-grid-item-1">
-          <p>hello</p>
+          <span to="#">Summer '20</span>
         </div>
         <div className="card-grid-item-1">
-          <p>hello</p>
+          <span>-</span>
         </div>
-        <div className="header-2">writers</div>
-        <div className="card-grid-item-2">
-          <p>hello</p>
-        </div>
-        <div className="card-grid-item-2">
-          <p>hello</p>
-        </div>
-        <div className="card-grid-item-2">
-          <p>hello</p>
-        </div>
-        <div className="card-grid-item-2">
-          <p>hello</p>
-        </div>
-        <div className="card-grid-item-2">
-          <p>hello</p>
-        </div>
-      </div>
 
-      <div className="cta">
-        <h4>View More...</h4>
+        <div className="header-2">Course</div>
+        <div className="card-grid-item-2">
+          <Link to="#">Eng 6</Link>
+        </div>
+        <div className="card-grid-item-2">
+          <Link to="#">Eng 5</Link>
+        </div>
+        <div className="card-grid-item-2">
+          <Link to="#">Eng 5</Link>
+        </div>
+        <div className="card-grid-item-2">
+          <span>-</span>
+        </div>
       </div>
     </div>
   )

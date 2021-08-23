@@ -71,13 +71,13 @@ const IndexPage = () => {
                 >
                   <motion.div className="circle circle-1">
                     <div className="texture"></div>
-                    <Link className="page-link" to="/student">
-                      <h5>STUDENT </h5>
-                      <span>Show me my report</span>
+                    <Link className="page-link" to="/card">
+                    
+                      <h5>View your child's report</h5>
                     </Link>
                   </motion.div>
                 </motion.div>
-                <motion.div
+                {/* <motion.div
                   className="circle-wrapper"
                   layoutId="main-circle-2"
                   transition={{ ease: [0.17, 0.67, 0.83, 0.67], duration: 1.6 }}
@@ -89,7 +89,7 @@ const IndexPage = () => {
                       <span>Show me my child's report</span>
                     </Link>
                   </motion.div>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </>

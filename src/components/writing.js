@@ -402,7 +402,7 @@ const Writing = ({ handleCloseButton }) => {
                   image={grid.node.thumbnail}
                   //   handleGridItem={handleGridItem}
                   //   handleClick={handleClick}
-                  data-title="Evenner"
+            
                 />
               )
             )}
@@ -423,7 +423,7 @@ const Writing = ({ handleCloseButton }) => {
                 image={grid.node.thumbnail}
                 //   handleGridItem={handleGridItem}
                 //   handleClick={handleClick}
-                data-title="Evenner"
+               
               />
             ))}
           </div>
@@ -507,7 +507,7 @@ const Grid = ({
         data-title="Evenner"
         // onMouseOver={handleGridItem}
         // onClick={handleClick}
-        data-title="Evenner"
+       
       >
         <span
           style={{

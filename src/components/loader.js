@@ -25,6 +25,14 @@ const item = {
       duration: 1.6,
     },
   },
+   exit: {
+    opacity: 0,
+    y: -200,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.8,
+    },
+  },
 }
 
 const item2 = {
@@ -60,6 +68,7 @@ const Loader = ({ setLoading }) => {
         onAnimationComplete={() => setLoading(false)}
         initial="hidden"
         animate="show"
+        exit="exit"
       >
         <motion.div className="page-wrapper page-wrapper-loader">
           <motion.div

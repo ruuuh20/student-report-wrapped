@@ -10,110 +10,64 @@ import PieChart from "./pieChart"
 import smileIcon from "../images/iconmonstr-smiley-2.svg"
 import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
-const ReadingTab = ({ handleCloseButton, user }) => {
-  const contentfulData = useStaticQuery(graphql`
-    query {
-      allContentfulBook {
-        edges {
-          node {
-            title
-            author
-            description {
-              id
-              description
-            }
-            thumbnail {
-              gatsbyImageData(width: 200)
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-      allContentfulReadingAssignment {
-        edges {
-          node {
-            title
-            thumbnail {
-              gatsbyImageData(width: 200)
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
+const WritingTab = ({ handleCloseButton, user, writingData }) => {
+  const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
+
+  const fade = {
+    initial: { opacity: 0 },
+    enter: { opacity: 1, transition },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, ...transition },
+    },
+  }
 
   const data = React.useMemo(
     () => [
       {
-        col1: "3/1",
-        col2: "Book 1",
-        col3: "✓ Completed",
-        col4: "93",
-      },
-      {
-        col1: "3/8",
-        col2: "Book 1",
-        col3: "✓ Completed",
-        col4: "90",
-      },
-      {
         col1: "3/15",
-        col2: "Book 1",
+        col2: "Book Essay",
         col3: "✓ Completed",
-        col4: "89",
       },
       {
         col1: "3/22",
-        col2: "Book 2",
+        col2: "NYT Outline",
         col3: "✓ Completed",
-        col4: "95",
       },
       {
         col1: "3/29",
-        col2: "Book 2",
+        col2: "NYT Essay",
         col3: "✓ Completed",
-        col4: "99",
       },
       {
         col1: "4/6",
-        col2: "Book 2",
+        col2: "NYT Essay - revision",
         col3: "✓ Completed",
-        col4: "95",
       },
       {
         col1: "4/5",
-        col2: "Book 3",
+        col2: "Book Essay",
         col3: "✓ Completed",
-        col4: "97",
       },
       {
         col1: "4/20",
-        col2: "Book 3",
-        col3: "✓ Completed",
-        col4: "97",
+        col2: "Book Essay - revision",
+        col3: "Missing",
       },
       {
         col1: "4/12",
-        col2: "Book 3",
+        col2: "NYT Outline",
         col3: "✓ Completed",
-        col4: "91",
       },
       {
         col1: "4/19",
-        col2: "Book 4",
-        col3: "✓ Completed",
-        col4: "100",
+        col2: "NYT Essay",
+        col3: "Incomplete",
       },
       {
         col1: "4/27",
-        col2: "Book 4",
-        col3: "✓ Completed",
-        col4: "100",
+        col2: "NYT Essay - revision",
+        col3: "Incomplete",
       },
     ],
     []
@@ -133,10 +87,6 @@ const ReadingTab = ({ handleCloseButton, user }) => {
         Header: "Status",
         accessor: "col3",
       },
-      {
-        Header: "Grade",
-        accessor: "col4",
-      },
     ],
     []
   )
@@ -151,33 +101,38 @@ const ReadingTab = ({ handleCloseButton, user }) => {
 
   return (
     <>
-      <div className="reading-tab-wrapper">
-        <div className="rc-grid">
+      <motion.div
+        className="reading-tab-wrapper"
+        initial="initial"
+        animate="enter"
+        exit="exit"
+      >
+        <motion.div className="rc-grid" variants={fade}>
           <section className="rc-row numbers">
             <div
-              className="values-container reading-values rc"
+              className="values-container reading-values writing-values rc"
               style={{
                 display: "flex",
               }}
             >
               <div className="values-item">
                 <span className="text-sm">
-                  The reading component consists of fiction novels, weekly
-                  reading responses, and vocabulary exercises.
+                  The writing section consists of weekly writing assignments
+                  (book topics and writing topics) and revisions.
                 </span>
               </div>
               <div className="values-item">
-                <span className="label">Reading grade</span>
-                <span className="lg-value">A</span>
+                <span className="label">Writing grade</span>
+                <span className="lg-value">A-</span>
               </div>
               <div className="values-item">
                 <span className="label">Class Average</span>
-                <span className="lg-value">A-</span>
+                <span className="lg-value">B+-</span>
               </div>
 
               <div className="values-item">
                 <span className="label">Homework</span>{" "}
-                <span className="lg-value">100%</span>
+                <span className="lg-value">94%</span>
               </div>
             </div>
           </section>
@@ -250,23 +205,42 @@ const ReadingTab = ({ handleCloseButton, user }) => {
               </table>
             </div>
           </section>
-          {/* <section className="rc-col">
-            {" "}
-            
-          </section> */}
-          <section className="rc-col rc-col-3">
-            <span data-v-712d00a9="" className="line--top"></span>
-            <div className="grid-12 books-container">
-              {contentfulData.allContentfulBook.edges.map((grid, index) => (
-                <Grid
-                  index={index}
-                  title={grid.node.title}
-                  imageUrl={grid.node.thumbnail.file.url}
-                  image={grid.node.thumbnail}
-                  //   handleGridItem={handleGridItem}
-                  //   handleClick={handleClick}
-                />
-              ))}
+
+          <section className="rc-col rc-writing rc-col-full row-4">
+            <span className="line--top"></span>
+            <h4>Essays and feedback (click to view larger)</h4>
+            <div className="grid-12 essays">
+              {writingData.allContentfulWritingAssignment.edges
+                .slice(0, 8)
+                .map((grid, index) => (
+                  <Grid
+                    index={index}
+                    title={grid.node.title}
+                    imageUrl={grid.node.thumbnail.file.url}
+                    image={grid.node.thumbnail}
+                    //   handleGridItem={handleGridItem}
+                    //   handleClick={handleClick}
+                  />
+                ))}
+            </div>
+          </section>
+
+          <section className="rc-col rc-writing rc-col-full row-6">
+            <span className="line--top"></span>
+            <h4>Revisions</h4>
+            <div className="grid-12 essays">
+              {writingData.allContentfulRevision.edges
+                .slice(0, 8)
+                .map((grid, index) => (
+                  <Grid
+                    index={index}
+                    title={grid.node.title}
+                    imageUrl={grid.node.thumbnail.file.url}
+                    image={grid.node.thumbnail}
+                    //   handleGridItem={handleGridItem}
+                    //   handleClick={handleClick}
+                  />
+                ))}
             </div>
           </section>
 
@@ -279,14 +253,12 @@ const ReadingTab = ({ handleCloseButton, user }) => {
                     <h4>strengths</h4>
                   </div>
                   <div className="list-item item-s">
-                    &#8226; recall higher-level comprehension questions
+                    &#8226; Is able to successfully organize thoughts and
+                    develop paragraphs
                   </div>
                   <div className="list-item item-s">
-                    &#8226; use of evidence to support assertions
-                  </div>
-                  <div className="list-item item-s">
-                    &#8226; summarizes fiction texts with main ideas from the
-                    beginning, middle, and end
+                    &#8226; Demonstrates consistent effort in using evidence to
+                    support arguments
                   </div>
                 </div>
               </div>
@@ -297,17 +269,18 @@ const ReadingTab = ({ handleCloseButton, user }) => {
                     <h4>Needs improvement</h4>
                   </div>
                   <div className="list-item item-w">
-                    &#8226; analysis of themes
+                    &#8226; Needs to pay closer attention to commentary on
+                    evidence
                   </div>
                   <div className="list-item item-w">
-                    &#8226; depth and quality of the analysis
+                    &#8226; Has difficulty with variation in sentence structures
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="rc-col rc-col-4 rc-participation">
+          <div className="rc-col rc-col-4 rc-writing rc-participation row-7">
             <span data-v-712d00a9="" className="line--top"></span>
             <span class="line--left" data-v-2e8f64aa=""></span>
             <div className="rc flex">
@@ -333,13 +306,14 @@ const ReadingTab = ({ handleCloseButton, user }) => {
                       <img className="pencil-icon" src={icon} alt="icon" />
                     </div>
                     <p>
-                      John was very engaged and focused during distance learning
-                      activities, and participated in discussions.
+                      &#8226; Is focused, attentive, and an active participant
+                      in class discussions
                     </p>
+                    <p> &#8226; Consistently submits work on time</p>
                     <p>
                       {" "}
-                      John is focused in class and willingly participates in
-                      class discussions.
+                      &#8226; Consistently prepares materials for (online)
+                      learning
                     </p>
                   </div>
                 </div>
@@ -347,21 +321,22 @@ const ReadingTab = ({ handleCloseButton, user }) => {
               <div></div>
             </div>
           </div>
-          <div className="rc-col rc-col-6">
+          <div className="rc-col rc-writing rc-left row-7">
+            <span data-v-712d00a9="" className="line--top"></span>
             <p>
-              John demonstrates good progress in using a variety of reading
-              comprehension skills and strategies to understand text. He also
-              has a fantastic work ethic.
+              His greatest strength is writing. He writes with fluent
+              organization and does a phenomenal job “showing and not telling”
+              details.
             </p>
             <p>
               {" "}
-              He puts forth a lot of effort. However, analyzing characters and
-              themes of the book is still difficult for him. Please continue to
-              reinforce skills at home.
+              He exhibits good use of grammar and mechanics, and writing pieces
+              are well-organized with clear details.
             </p>
+            <p>He has shown great improvement with writing and analysis.</p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </>
   )
 }
@@ -382,7 +357,6 @@ const Grid = ({
   return (
     <>
       <motion.a
-        whileHover={{ scale: 1.1 }}
         className={`grid-item-writing`}
         ref={grid}
         style={{ display: "grid", textAlign: "center" }}
@@ -394,17 +368,13 @@ const Grid = ({
           style={{
             fontSize: "10px",
             textTransform: "uppercase",
-            fontWeight: "500",
+            fontWeight: "400",
           }}
         >
           {title}
         </span>
 
         <ModalImage
-          style={{
-            transform:
-              "matrix(0.99756, -0.06976, 0.06976, 0.99756, 1.09615, 11.3958)",
-          }}
           small={imageUrl}
           medium={imageUrl}
           hideDownload={true}
@@ -415,4 +385,4 @@ const Grid = ({
   )
 }
 
-export default ReadingTab
+export default WritingTab
