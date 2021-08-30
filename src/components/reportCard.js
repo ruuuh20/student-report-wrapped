@@ -2,7 +2,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import React, { useEffect, useState, useRef } from "react"
 import ReadingTab from "./readingTab"
 import VocabTab from "./vocabTab"
-import WritingTab from "./WritingTab"
+import WritingTab from "./writingTab"
 
 const ReportCard = () => {
   const writingData = useStaticQuery(graphql`
