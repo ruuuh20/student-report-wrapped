@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import ModalImage from "react-modal-image"
@@ -353,9 +352,6 @@ const Grid = ({
   handleGridItem,
 }) => {
   const grid = useRef()
-  const [hoverState, setHoverState] = useState(false)
-
-  let image1 = getImage(image)
 
   return (
     <>
