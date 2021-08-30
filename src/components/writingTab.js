@@ -244,7 +244,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
             </div>
           </section>
 
-          <div className="rc-row rc-feedback">
+          <div className="rc-row rc-feedback writing">
             <div className="flex flex-wrap flex-m">
               <div className="row list-container left">
                 <img className="rotate-img" src={smileIcon} />
@@ -255,6 +255,9 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
                   <div className="list-item item-s">
                     &#8226; Is able to successfully organize thoughts and
                     develop paragraphs
+                  </div>
+                  <div className="list-item item-s">
+                    &#8226; Demonstrates sentence fluency within writing
                   </div>
                   <div className="list-item item-s">
                     &#8226; Demonstrates consistent effort in using evidence to
@@ -283,7 +286,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
           <div className="rc-col rc-col-4 rc-writing rc-participation row-7">
             <span data-v-712d00a9="" className="line--top"></span>
             <span class="line--left" data-v-2e8f64aa=""></span>
-            <div className="rc flex">
+            <div className="flex rc">
               <div className="values-item">
                 <span className="label">Participation</span>{" "}
                 <span className="lg-value">A-</span>

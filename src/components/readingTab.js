@@ -271,7 +271,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           </section>
 
           <div className="rc-row rc-feedback">
-            <div className="flex flex-wrap flex-m">
+            <div className="flex flex-wrap">
               <div className="row list-container left">
                 <img className="rotate-img" src={smileIcon} />
                 <div className="list-wrap-s">

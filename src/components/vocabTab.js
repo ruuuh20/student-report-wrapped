@@ -212,80 +212,18 @@ const VocabTab = ({ handleCloseButton, user }) => {
             </div>
           </section>
 
-          <section className="rc-col rc-writing rc-col-full row-4">
+          <section className="rc-col rc-vocab rc-col-full row-3">
             <span className="line--top"></span>
-            <h4>Book</h4>
-            <StaticImage src="../images/068844.jpeg" alt="vocab" />
+
+            <div className="flex">
+              <StaticImage src="../images/068844.jpeg" alt="vocab" />
+              <div className="flex flex-wrap flex-m">
+                <p>✓ Has a good understanding of vocaublary.</p>
+                <p>✓ Regularly follows detailed instructions</p>
+                <p>✓ Grasps new vocabulary readily</p>
+              </div>
+            </div>
           </section>
-
-          <section className="rc-col rc-writing rc-col-full row-6">
-            <span className="line--top"></span>
-            <h4>Revisions</h4>
-          </section>
-
-          <div className="rc-row rc-feedback">
-            <div className="flex flex-wrap flex-m">
-              <p>✓ Has a good understanding of vocaublary.</p>
-              <p>✓ Regularly follows detailed instructions</p>
-              <p>✓ Grasps new vocabulary readily</p>
-            </div>
-          </div>
-
-          <div className="rc-col rc-col-4 rc-writing rc-participation row-7">
-            <span data-v-712d00a9="" className="line--top"></span>
-            <span class="line--left" data-v-2e8f64aa=""></span>
-            <div className="rc flex">
-              <div className="values-item">
-                <span className="label">Participation</span>{" "}
-                <span className="lg-value">A-</span>
-              </div>
-              <div className="values-item">
-                <span className="label">Attendance</span>{" "}
-                <span className="lg-value">95%</span>
-              </div>
-              <div className="values-item">
-                <span className="label">Absences</span>{" "}
-                <span className="lg-value">1</span>
-              </div>
-            </div>
-            <div className="comments-and-feedback">
-              <div className="rc-col rc-col-5 comments-col">
-                <div className="comment-wrapper">
-                  <div className="comment-card">
-                    <div className="comment-card-icon-container">
-                      <span className="comment-title">Comments</span>
-                      <img className="pencil-icon" src={icon} alt="icon" />
-                    </div>
-                    <p>
-                      &#8226; Is focused, attentive, and an active participant
-                      in class discussions
-                    </p>
-                    <p> &#8226; Consistently submits work on time</p>
-                    <p>
-                      {" "}
-                      &#8226; Consistently prepares materials for (online)
-                      learning
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div></div>
-            </div>
-          </div>
-          <div className="rc-col rc-writing rc-left row-7">
-            <span data-v-712d00a9="" className="line--top"></span>
-            <p>
-              His greatest strength is writing. He writes with fluent
-              organization and does a phenomenal job “showing and not telling”
-              details.
-            </p>
-            <p>
-              {" "}
-              He exhibits good use of grammar and mechanics, and writing pieces
-              are well-organized with clear details.
-            </p>
-            <p>He has shown great improvement with writing and analysis.</p>
-          </div>
         </motion.div>
       </motion.div>
     </>

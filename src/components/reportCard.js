@@ -109,7 +109,7 @@ const ReportCard = () => {
             </li>
             <li
               onClick={handleClickSubject}
-               className={activeClass === "writing" ? "active" : ""}
+               className={activeClass === "vocabulary" ? "active" : ""}
               data-subject="vocabulary"
             >
               <span>Vocab</span>
