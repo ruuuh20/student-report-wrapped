@@ -10,7 +10,7 @@ import PieChart from "./pieChart"
 import smileIcon from "../images/iconmonstr-smiley-2.svg"
 import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
-const WritingTab = ({ handleCloseButton, user, writingData }) => {
+const VocabTab = ({ handleCloseButton, user }) => {
   const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
 
   const fade = {
@@ -25,49 +25,54 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
   const data = React.useMemo(
     () => [
       {
-        col1: "3/15",
-        col2: "Book Essay",
+        col1: "Assignment",
+        col2: "Lesson 9",
         col3: "✓ Completed",
       },
       {
-        col1: "3/22",
-        col2: "NYT Outline",
+        col1: "Assignment",
+        col2: "Lesson 10",
         col3: "✓ Completed",
       },
       {
-        col1: "3/29",
-        col2: "NYT Essay",
+        col1: "Assignment",
+        col2: "Lesson 11",
         col3: "✓ Completed",
       },
       {
-        col1: "4/6",
-        col2: "NYT Essay - revision",
+        col1: "Assignment",
+        col2: "Lesson 12",
         col3: "✓ Completed",
       },
       {
-        col1: "4/5",
-        col2: "Book Essay",
+        col1: "Quiz",
+        col2: "Lessons 9-12",
+        col3: "90%",
+      },
+      {
+        col1: "Assignment",
+        col2: "Lesson 13",
         col3: "✓ Completed",
       },
       {
-        col1: "4/20",
-        col2: "Book Essay - revision",
-        col3: "Missing",
-      },
-      {
-        col1: "4/12",
-        col2: "NYT Outline",
+        col1: "Assignment",
+        col2: "Lesson 14",
         col3: "✓ Completed",
       },
       {
-        col1: "4/19",
-        col2: "NYT Essay",
+        col1: "Assignment",
+        col2: "Lesson 15",
         col3: "Incomplete",
       },
       {
-        col1: "4/27",
-        col2: "NYT Essay - revision",
-        col3: "Incomplete",
+        col1: "Assignment",
+        col2: "Lesson 16",
+        col3: "✓ Completed",
+      },
+      {
+        col1: "Quiz",
+        col2: "Lessons 13-15",
+        col3: "91%",
       },
     ],
     []
@@ -76,7 +81,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Date",
+        Header: "-",
         accessor: "col1", // accessor is the "key" in the data
       },
       {
@@ -84,7 +89,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
         accessor: "col2",
       },
       {
-        Header: "Status",
+        Header: "Grade",
         accessor: "col3",
       },
     ],
@@ -110,29 +115,30 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
         <motion.div className="rc-grid" variants={fade}>
           <section className="rc-row numbers">
             <div
-              className="values-container reading-values writing-values rc"
+              className="values-container reading-values vocab-values rc"
               style={{
                 display: "flex",
               }}
             >
               <div className="values-item">
                 <span className="text-sm">
-                  The writing section consists of weekly writing assignments
-                  (book topics and writing topics) and revisions during class.
+                  The vocabulary section consists of (1) assigned vocab
+                  exercises per week, (2)review and questions during class,
+                  (3)vocab quiz every 4 lessons.
                 </span>
               </div>
               <div className="values-item">
-                <span className="label">Writing grade</span>
+                <span className="label">Vocab grade</span>
                 <span className="lg-value">A-</span>
               </div>
               <div className="values-item">
                 <span className="label">Class Average</span>
-                <span className="lg-value">B+-</span>
+                <span className="lg-value">B-</span>
               </div>
 
               <div className="values-item">
                 <span className="label">Homework</span>{" "}
-                <span className="lg-value">94%</span>
+                <span className="lg-value">90%</span>
               </div>
             </div>
           </section>
@@ -208,75 +214,20 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
 
           <section className="rc-col rc-writing rc-col-full row-4">
             <span className="line--top"></span>
-            <h4>Essays and feedback (click to view larger)</h4>
-            <div className="grid-12 essays">
-              {writingData.allContentfulWritingAssignment.edges
-                .slice(0, 8)
-                .map((grid, index) => (
-                  <Grid
-                    index={index}
-                    title={grid.node.title}
-                    imageUrl={grid.node.thumbnail.file.url}
-                    image={grid.node.thumbnail}
-                    //   handleGridItem={handleGridItem}
-                    //   handleClick={handleClick}
-                  />
-                ))}
-            </div>
+            <h4>Book</h4>
+            <StaticImage src="../images/068844.jpeg" alt="vocab" />
           </section>
 
           <section className="rc-col rc-writing rc-col-full row-6">
             <span className="line--top"></span>
             <h4>Revisions</h4>
-            <div className="grid-12 essays">
-              {writingData.allContentfulRevision.edges
-                .slice(0, 8)
-                .map((grid, index) => (
-                  <Grid
-                    index={index}
-                    title={grid.node.title}
-                    imageUrl={grid.node.thumbnail.file.url}
-                    image={grid.node.thumbnail}
-                    //   handleGridItem={handleGridItem}
-                    //   handleClick={handleClick}
-                  />
-                ))}
-            </div>
           </section>
 
           <div className="rc-row rc-feedback">
             <div className="flex flex-wrap flex-m">
-              <div className="row list-container left">
-                <img className="rotate-img" src={smileIcon} />
-                <div className="list-wrap-s">
-                  <div className="sub-headline">
-                    <h4>strengths</h4>
-                  </div>
-                  <div className="list-item item-s">
-                    &#8226; Is able to successfully organize thoughts and
-                    develop paragraphs
-                  </div>
-                  <div className="list-item item-s">
-                    &#8226; Demonstrates consistent effort in using evidence to
-                    support arguments
-                  </div>
-                </div>
-              </div>
-              <div className="row list-container right">
-                <img className="rotate-img" src={frownIcon} />
-                <div className="list-wrap-w">
-                  <div className="sub-headline">
-                    <h4>Needs improvement</h4>
-                  </div>
-                  <div className="list-item item-w">
-                    &#8226; Needs to pay closer attention to commentary on
-                    evidence
-                  </div>
-                  <div className="list-item item-w">
-                    &#8226; Has difficulty with variation in sentence structures
-                  </div>
-                </div>
-              </div>
+              <p>✓ Has a good understanding of vocaublary.</p>
+              <p>✓ Regularly follows detailed instructions</p>
+              <p>✓ Grasps new vocabulary readily</p>
             </div>
           </div>
 
@@ -385,4 +336,4 @@ const Grid = ({
   )
 }
 
-export default WritingTab
+export default VocabTab

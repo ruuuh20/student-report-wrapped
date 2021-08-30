@@ -310,7 +310,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           <div className="rc-col rc-col-4 rc-participation">
             <span data-v-712d00a9="" className="line--top"></span>
             <span class="line--left" data-v-2e8f64aa=""></span>
-            <div className="rc flex">
+            <div className="flex rc">
               <div className="values-item">
                 <span className="label">Participation</span>{" "}
                 <span className="lg-value">A-</span>
@@ -347,7 +347,30 @@ const ReadingTab = ({ handleCloseButton, user }) => {
               <div></div>
             </div>
           </div>
+
           <div className="rc-col rc-col-6">
+            <div className="quiz-table-wrapper">
+              <div className="grid-table">
+                <div>
+                  <span className="header">Book quiz</span>
+                  <span className="header">Grade</span>
+                </div>
+                <div>
+                  <span className="title">Abel's Island Quiz</span>
+                  <span className="grade">18/20</span>
+                </div>
+                <div>
+                  <span className="title">Nine Open Arms Quiz</span>
+                  <span className="grade">14/20</span>
+                </div>
+                <div>
+                  <span className="title">Maniac Magee Quiz</span>
+                  <span className="grade">19/20</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section className="rc-col rc-col-7">
             <p>
               John demonstrates good progress in using a variety of reading
               comprehension skills and strategies to understand text. He also
@@ -359,7 +382,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
               themes of the book is still difficult for him. Please continue to
               reinforce skills at home.
             </p>
-          </div>
+          </section>
         </div>
       </div>
     </>

@@ -2715,15 +2715,19 @@ section.part-section {
 }
 
 .subjects-menu li {
-  border-left: 1px solid;
-  border-bottom: 1px solid;
+  border-left: 1px solid rgba(165, 165, 165, 0.5);
+  border-right: 1px solid rgba(165, 165, 165, 0.5);
+  border-top: 1px solid rgba(165, 165, 165, 0.5);
+  background: #eeeeee;
   margin-bottom: 0;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px rgba(165, 165, 165, 0.5);
 }
 
 .subjects-menu li span {
   text-transform: uppercase;
   font-size: 0.9rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.2em;
   padding: 10px 2.5vw;
   color: #050505;
   color: var(--color-main);
@@ -2782,12 +2786,17 @@ section.part-section {
   grid-row: 5;
 }
 .rc-col-6 {
-  grid-column: col-start 3 / span 8;
+  grid-column: col-start / span 5;
   grid-row: 5;
 }
 
 .rc-col-6 {
   font-size: 14px;
+}
+.rc-col-7 {
+  font-size: 14px;
+  grid-column: col-start 6 / span 8;
+  grid-row: 5;
 }
 
 .comments-col .comment-wrapper .comment-card {
@@ -2860,7 +2869,7 @@ section.part-section {
 .rc-col .chart-container.pie {
   padding-top: 0;
   padding-bottom: 1rem;
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -2876,7 +2885,7 @@ section.part-section {
 
 .rc-col .books-container {
   width: 100%;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .rc-col .books-container .grid-item-writing span {
@@ -3065,4 +3074,40 @@ th {
   background: aliceblue;
   padding: 0.2rem;
   font-family: "Montserrat";
+}
+
+.vocab-values .values-item,
+.vocab-values .values-item .lg-value {
+  color: #133533;
+}
+
+.row-4 .gatsby-image-wrapper {
+  width: 30%;
+}
+
+.grid-table {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.grid-table > div {
+  display: flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dotted #ffa94d;
+}
+
+.grid-table .header {
+  font-weight: 600;
+}
+
+.grid-table .title {
+  font-size: 16px;
+}
+
+.grid-table .grade {
+  font-size: 16px;
 }

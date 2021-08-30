@@ -1,6 +1,7 @@
 import { Link, graphql, useStaticQuery } from "gatsby"
 import React, { useEffect, useState, useRef } from "react"
 import ReadingTab from "./readingTab"
+import VocabTab from "./vocabTab"
 import WritingTab from "./WritingTab"
 
 const ReportCard = () => {
@@ -46,7 +47,7 @@ const ReportCard = () => {
   } else if (subjectOpen === "reading") {
     subj = <ReadingTab />
   } else if (subjectOpen === "vocabulary") {
-    subj = "voc"
+    subj = <VocabTab />
   } else if (subjectOpen === "best") {
     subj = "best"
   }
@@ -91,7 +92,7 @@ const ReportCard = () => {
         <div class="menu-live-navigation-container">
           <ul id="primary-menu" className="subjects-menu">
             <li
-              id="menu-item-626"
+             
               className={activeClass === "reading" ? "active" : ""}
               data-subject="reading"
               onClick={handleClickSubject}
@@ -99,7 +100,7 @@ const ReportCard = () => {
               <span>Reading</span>
             </li>
             <li
-              id="menu-item-551"
+              
               className={activeClass === "writing" ? "active" : ""}
               data-subject="writing"
               onClick={handleClickSubject}
@@ -107,8 +108,9 @@ const ReportCard = () => {
               <span>Writing</span>
             </li>
             <li
-              id="menu-item-552"
-              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-552"
+              onClick={handleClickSubject}
+               className={activeClass === "writing" ? "active" : ""}
+              data-subject="vocabulary"
             >
               <span>Vocab</span>
             </li>
