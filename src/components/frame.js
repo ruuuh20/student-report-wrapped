@@ -14,7 +14,7 @@ const Frame = ({ user = 'student' }) => {
         <span>John Smith</span>
         <span>Spr 21</span>
         <span>ENG 6 </span>
-        <span id="label-2">[distance learning]</span>
+      
         
       </div>
       <div className="frame__user">

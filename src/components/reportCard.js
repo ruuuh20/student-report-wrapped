@@ -86,7 +86,7 @@ const ReportCard = () => {
               great essays, and how to use new vocabulary words. 
 
             </p>
-            <span className="rel">no<strong className="accent-circle">&nbsp;</strong></span>
+             {/* <span className="rel">reading/writing<strong className="accent-circle">&nbsp;</strong></span>. */}
           </div>
         </div>
       </section>

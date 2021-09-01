@@ -2278,6 +2278,10 @@ section.part-section {
     display: block;
   }
 
+  .circle-1 {
+    top: 35%;
+  }
+
   .circle-2 {
     right: -12%;
     top: 35%;
@@ -2600,18 +2604,22 @@ section.part-section {
   justify-content: center;
 }
 .rc-intro-wrapper {
-  font-family: "Rubik";
+  font-family: "Montserrat";
   padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding: 1rem 4rem;
+}
+
+.rc-intro-top {
   padding-bottom: 1rem;
 }
 
 .rc-intro-top .flex {
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .rc-intro-bottom {
-  padding: 1rem 3rem;
   padding-bottom: 0;
 }
 
@@ -2624,10 +2632,12 @@ section.part-section {
 .rc-intro-text p {
   font-size: 14px;
   margin-bottom: 0;
+  font-weight: 500;
 }
 
 .name-lg {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 500;
 }
 
 .reading-tab-wrapper {
@@ -3070,6 +3080,7 @@ th {
   font-weight: 600;
   color: #4741e2 !important;
   background-color: #d8daef;
+  text-decoration: underline !important;
 }
 
 .rc-writing.rc-col-full {
