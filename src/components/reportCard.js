@@ -83,8 +83,10 @@ const ReportCard = () => {
             <p>
               This class aims to help students grow in their English abilities
               by focusing on 3 areas: how to analyze good books, how to write
-              great essays, and how to use new vocabulary words.
+              great essays, and how to use new vocabulary words. 
+
             </p>
+            <span className="rel">no<strong className="accent-circle">&nbsp;</strong></span>
           </div>
         </div>
       </section>

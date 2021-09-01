@@ -2243,21 +2243,22 @@ section.part-section {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s all;
 }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
   }
   .landing-title {
     height: 90%;
-    padding: 2rem 5rem;
+    padding: 2rem 8rem;
     width: 100%;
   }
   .landing-title h2 {
-    font-size: 32px;
+    font-size: 40px;
     text-transform: uppercase;
+    text-align: center;
   }
   .lines span {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   .col-50 {
     width: 100%;
@@ -2269,17 +2270,14 @@ section.part-section {
   }
   .page-link h5 {
     font-family: "Montserrat";
-    font-size: 1.2rem;
-    letter-spacing: 1.5px;
+    font-size: 1.25rem;
   }
   .page-link span {
     font-size: 1rem;
     margin-top: 1rem;
     display: block;
   }
-  .circle-1 {
-    left: -12%;
-  }
+
   .circle-2 {
     right: -12%;
     top: 35%;
@@ -2560,6 +2558,10 @@ section.part-section {
   transform: rotate(-7deg);
 }
 
+.rel {
+  position: relative;
+}
+
 /* report card (rc) */
 
 .rc-grid {
@@ -2586,6 +2588,7 @@ section.part-section {
 .rc-main {
   background: white;
   padding: 0.5rem;
+  border-radius: 5px;
 }
 
 .main-navigation {
