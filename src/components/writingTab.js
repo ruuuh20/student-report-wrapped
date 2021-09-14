@@ -244,7 +244,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
           </section>
 
           <div className="rc-row rc-feedback writing">
-            <div className="flex flex-wrap flex-m">
+            <div className="flex flex-wrap">
               <div className="row list-container left">
                 <img className="rotate-img" src={smileIcon} />
                 <div className="list-wrap-s">
@@ -323,7 +323,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
               <div></div>
             </div>
           </div>
-          <div className="rc-col rc-writing rc-left row-7">
+          <div className="rc-col rc-writing rc-left row-7 mb-row-9">
             <span data-v-712d00a9="" className="line--top"></span>
             <p>
               His greatest strength is writing. He writes with fluent

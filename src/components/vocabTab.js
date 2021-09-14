@@ -81,11 +81,11 @@ const VocabTab = ({ handleCloseButton, user }) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "-",
+        Header: "Assignment",
         accessor: "col1", // accessor is the "key" in the data
       },
       {
-        Header: "Assignment",
+        Header: "Lessons",
         accessor: "col2",
       },
       {

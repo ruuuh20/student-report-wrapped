@@ -47,6 +47,16 @@ const ReadingTab = ({ handleCloseButton, user }) => {
     }
   `)
 
+  const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
+  const fade = {
+    initial: { opacity: 0 },
+    enter: { opacity: 1, transition },
+    exit: {
+      opacity: 0,
+      transition: { duration: 0.5, ...transition },
+    },
+  }
+
   const data = React.useMemo(
     () => [
       {
@@ -151,7 +161,12 @@ const ReadingTab = ({ handleCloseButton, user }) => {
 
   return (
     <>
-      <div className="reading-tab-wrapper">
+      <motion.div
+        className="reading-tab-wrapper"
+        initial="initial"
+        animate="enter"
+        exit="exit"
+      >
         <div className="rc-grid">
           <section className="rc-row numbers">
             <div
@@ -310,7 +325,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           <div className="rc-col rc-col-4 rc-participation">
             <span data-v-712d00a9="" className="line--top"></span>
             <span class="line--left" data-v-2e8f64aa=""></span>
-            <div className="flex rc">
+            <div className="flex rc reading-values">
               <div className="values-item">
                 <span className="label">Participation</span>{" "}
                 <span className="lg-value">A-</span>
@@ -349,6 +364,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           </div>
 
           <div className="rc-col rc-col-6">
+            <span data-v-712d00a9="" className="line--top"></span>
             <div className="quiz-table-wrapper">
               <div className="grid-table">
                 <div>
@@ -371,6 +387,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
             </div>
           </div>
           <section className="rc-col rc-col-7">
+            <span data-v-712d00a9="" className="line--top"></span>
             <p>
               John demonstrates good progress in using a variety of reading
               comprehension skills and strategies to understand text. He also
@@ -384,7 +401,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
             </p>
           </section>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

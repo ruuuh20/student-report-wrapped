@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef } from "react"
 import ReadingTab from "./readingTab"
 import VocabTab from "./vocabTab"
 import WritingTab from "./writingTab"
-
+import { motion } from "framer-motion"
 const ReportCard = () => {
   const writingData = useStaticQuery(graphql`
     query {
@@ -52,6 +52,8 @@ const ReportCard = () => {
     subj = "best"
   }
 
+  
+
   const handleClickSubject = e => {
     let subject = e.currentTarget.dataset.subject
     setSubjectOpen(subject)
@@ -99,7 +101,7 @@ const ReportCard = () => {
               data-subject="reading"
               onClick={handleClickSubject}
             >
-              <span>Reading</span>
+              <span className="rel">Reading<strong className="accent-circle">&nbsp;</strong></span>
             </li>
             <li
               
@@ -107,14 +109,14 @@ const ReportCard = () => {
               data-subject="writing"
               onClick={handleClickSubject}
             >
-              <span>Writing</span>
+              <span className="rel">Writing<strong className="accent-circle">&nbsp;</strong></span>
             </li>
             <li
               onClick={handleClickSubject}
                className={activeClass === "vocabulary" ? "active" : ""}
               data-subject="vocabulary"
             >
-              <span>Vocab</span>
+             <span className="rel">Vocab<strong className="accent-circle">&nbsp;</strong></span>
             </li>
           </ul>
         </div>{" "}
