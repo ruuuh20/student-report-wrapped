@@ -2617,7 +2617,7 @@ section.part-section {
 
 @media only screen and (max-width: 768px) {
   .rc-intro-wrapper {
-    padding: 0.5rem 2rem;
+    padding: 1rem 0.1rem;
   }
 }
 
@@ -3106,13 +3106,14 @@ th {
 .rc-vocab .flex {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: left;
 }
 .rc-vocab.row-3 .gatsby-image-wrapper {
-  width: 25%;
+  width: 30%;
 }
 .rc-vocab.row-3 .flex-m {
   grid-column: 4 / span 5;
+  padding-left: 1rem;
 }
 
 .rc-writing.row-6 {

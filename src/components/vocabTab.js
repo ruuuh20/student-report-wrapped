@@ -218,7 +218,7 @@ const VocabTab = ({ handleCloseButton, user }) => {
             <div className="flex">
               <StaticImage src="../images/068844.jpeg" alt="vocab" />
               <div className="flex flex-wrap flex-m">
-                <p>✓ Has a good understanding of vocaublary.</p>
+                <p>✓ Has a good understanding of vocabulary</p>
                 <p>✓ Regularly follows detailed instructions</p>
                 <p>✓ Grasps new vocabulary readily</p>
               </div>
