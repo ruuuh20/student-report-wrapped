@@ -45,49 +45,54 @@ const Vocabulary = ({ handleCloseButton }) => {
   const data = React.useMemo(
     () => [
       {
-        col1: "3/15",
-        col2: "Book Essay",
+        col1: "Assignment",
+        col2: "Lesson 9",
         col3: "✓ Completed",
       },
       {
-        col1: "3/22",
-        col2: "NYT Outline",
+        col1: "Assignment",
+        col2: "Lesson 10",
         col3: "✓ Completed",
       },
       {
-        col1: "3/29",
-        col2: "NYT Essay",
+        col1: "Assignment",
+        col2: "Lesson 11",
         col3: "✓ Completed",
       },
       {
-        col1: "4/6",
-        col2: "NYT Essay - revision",
+        col1: "Assignment",
+        col2: "Lesson 12",
         col3: "✓ Completed",
       },
       {
-        col1: "4/5",
-        col2: "Book Essay",
+        col1: "Quiz",
+        col2: "Lessons 9-12",
+        col3: "90%",
+      },
+      {
+        col1: "Assignment",
+        col2: "Lesson 13",
         col3: "✓ Completed",
       },
       {
-        col1: "4/20",
-        col2: "Book Essay - revision",
-        col3: "Missing",
-      },
-      {
-        col1: "4/12",
-        col2: "NYT Outline",
+        col1: "Assignment",
+        col2: "Lesson 14",
         col3: "✓ Completed",
       },
       {
-        col1: "4/19",
-        col2: "NYT Essay",
+        col1: "Assignment",
+        col2: "Lesson 15",
         col3: "Incomplete",
       },
       {
-        col1: "4/27",
-        col2: "NYT Essay - revision",
-        col3: "Incomplete",
+        col1: "Assignment",
+        col2: "Lesson 16",
+        col3: "✓ Completed",
+      },
+      {
+        col1: "Quiz",
+        col2: "Lessons 13-15",
+        col3: "91%",
       },
     ],
     []
@@ -96,20 +101,21 @@ const Vocabulary = ({ handleCloseButton }) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Date",
+        Header: "Assignment",
         accessor: "col1", // accessor is the "key" in the data
       },
       {
-        Header: "Assignment",
+        Header: "Lessons",
         accessor: "col2",
       },
       {
-        Header: "",
+        Header: "Grade",
         accessor: "col3",
       },
     ],
     []
   )
+
 
   const {
     getTableProps,
@@ -129,18 +135,18 @@ const Vocabulary = ({ handleCloseButton }) => {
         minHeight: "90vh",
       }}
     >
-      <section>
+      <section className="vocab-hero">
         <div className="container">
           <button className="back-arrow" onClick={handleCloseButton}>
             <span className="button__icon">Go back</span>
           </button>
 
-          <div
+          {/* <div
             className="bg-circle"
             style={{ clipPath: "circle(55% at 75% 50%)" }}
-          ></div>
+          ></div> */}
           <div className="headline row">
-            <h2>Your vocabulary grade improved since the last report!</h2>
+            <h2>John's <span className="rel">vocabulary<strong className="visible accent-circle">&nbsp;</strong></span>overview</h2>
           </div>
           <div
             className="values-container row"
@@ -149,10 +155,10 @@ const Vocabulary = ({ handleCloseButton }) => {
             }}
           >
             <div className="values-item" style={{ zIndex: "999" }}>
-              Your average is<span className="lg-value">92%</span>
+              Average<span className="lg-value">88%</span>
             </div>
             <div className="values-item" style={{ zIndex: "999" }}>
-              Your essay score is <span className="lg-value">94%</span>
+              Vocab grade <span className="lg-value">91%</span>
             </div>
             <div className="values-item" style={{ zIndex: "999" }}>
               Attendance <span className="lg-value">9/10</span>
@@ -168,20 +174,23 @@ const Vocabulary = ({ handleCloseButton }) => {
           <WritingBar />
         </div>
       </section>
-      <div className="img-wrapper">
-        <StaticImage src="../images/vocabbook.jpg" alt="essay" />
+      <div className="img-wrapper-vocab">
+        <StaticImage src="../images/vocabbook.jpg" alt="evocab book" />
       </div>
+         <div className="flex flex-col flex-wrap">
+                <p>✓ Has a good understanding of vocabulary</p>
+                <p>✓ Regularly follows detailed instructions</p>
+                <p>✓ Grasps new vocabulary readily</p>
+          </div>
       
       
 
-      <section style={{ background: "#bbdaee" }}>
+      <section style={{ background: "#C36839" }}>
         <div className="container">
           <div className="row">
             <div className="headline headline-p">
               <p>
-                You missed 1 assignment, but you completed almost all writing
-                assignments, including book reports and NYT essays. You also
-                worked on revisions.
+                Here are your vocab quiz grades
               </p>
             </div>
             <table
@@ -237,57 +246,7 @@ const Vocabulary = ({ handleCloseButton }) => {
 
    
 
-      <section style={{ background: "rgb(120,75,55)", color: "#eeeeee" }}>
-        <div className="container">
-          <div
-            className="values-container row reading"
-            style={{
-              display: "flex",
-            }}
-          >
-            <div className="values-item col-3">
-              <p style={{ fontSize: "2rem", lineHeight: "1.5" }}>
-                You participated and contributed a lot to the class.
-              </p>
-            </div>
-            <div
-              className="values-item"
-              style={{ color: "#DBD437", textAlign: "center" }}
-            >
-              Participation{" "}
-              <span className="lg-value" style={{ color: "#DBD437" }}>
-                A
-              </span>
-            </div>
-            <div
-              className="values-item"
-              style={{ color: "#DBD437", textAlign: "center" }}
-            >
-              Attendance{" "}
-              <span className="lg-value" style={{ color: "#DBD437" }}>
-                10/10
-              </span>
-            </div>
-          </div>
-          <div className="flex row" style={{ justifyContent: "center" }}>
-            <div className="comment-card">
-              <div className="comment-card-icon-container">
-                <span className="comment-title">Comment</span>
-                <img className="pencil-icon" src={icon} alt="icon" />
-              </div>
-              <p>John is enthusiastic about participating.</p>
-              <p>
-                John is focused in class and willingly participates in class
-                discussions.
-              </p>
-              <p>
-                John stayed motivated to complete assignments during distance
-                learning, and turned in all required materials on time.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    
     </div>
   )
 }

@@ -1409,6 +1409,29 @@ button {
 .writing-hero .container .values-item .lg-value {
   color: #224a08;
 }
+
+.vocab-hero {
+  background: #7eb5a6;
+}
+
+.img-wrapper-vocab {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.flex-col p {
+  font-size: 2rem;
+  line-height: 2;
+}
 .grid-item-writing {
   grid-column: span 3;
   position: relative;
@@ -2318,6 +2341,7 @@ section.part-section {
   .values-container {
     flex-wrap: wrap;
   }
+
   .values-item {
     width: 50%;
     padding-top: 2rem;

@@ -545,12 +545,12 @@ const Reading = ({ handleCloseButton, user }) => {
                 display: "flex",
               }}
             >
-              <div className="">
+              <div className="headline">
                 <p
-                  className="headline"
+                  
                   style={{ fontWeight: "500", fontSize: "2rem", lineHeight: "1.5" }}
                 >
-                  Participation <br/> and Contribution{" "}
+                  Participation  and Contribution{" "}
                   <img width={40} src={checkIcon} alt="check" />
                 </p>
               </div>

@@ -229,7 +229,7 @@ const Writing = ({ handleCloseButton }) => {
             <p>Based on your essay feedback, we found the following:</p>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex flex-wrap flex-m">
           <div className="row list-container left">
             <div className="list-wrap-s">
               <div className="sub-headline">
