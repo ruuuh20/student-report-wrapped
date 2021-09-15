@@ -233,7 +233,7 @@ const Reading = ({ handleCloseButton, user }) => {
             <div className="headline row">
               <h2>
                 Let's go over {changeText.name} <br />
-                <span className="underline">reading</span> report
+                <span className="rel">reading<strong className="visible accent-circle">&nbsp;</strong></span> report
               </h2>
             </div>
             <div
@@ -266,9 +266,6 @@ const Reading = ({ handleCloseButton, user }) => {
           </div>
         </section>
         <section>
-          <RevealLeft>
-            <span className="scroll-text scroll-left">Responses</span>
-          </RevealLeft>
           <div className="container">
             <div className="headline">
               <p>
@@ -322,6 +319,9 @@ const Reading = ({ handleCloseButton, user }) => {
           </div>
         </section>
         <section className="">
+            <RevealLeft>
+            <span className="scroll-text scroll-left">Responses</span>
+          </RevealLeft>
           <div className="container">
             <p
               style={{
@@ -460,7 +460,7 @@ const Reading = ({ handleCloseButton, user }) => {
               </table>
               <div className="headline headline-p">
                 <p style={{ color: "#f0faf1" }}>
-                  Awesome job, you completed all reading/book assignments.
+                  Awesome job, you completed all reading and book assignments.
                 </p>
                 <p style={{ color: "#f0faf1" }}>
                   Your highest grade was <span className="lg red">100%</span>and
@@ -540,17 +540,17 @@ const Reading = ({ handleCloseButton, user }) => {
           </RevealRight>
           <div className="container">
             <div
-              className="values-container row reading flex-wrap"
+              className="flex-wrap values-container row reading"
               style={{
                 display: "flex",
               }}
             >
               <div className="">
                 <p
-                  className="headline-s"
-                  style={{ fontSize: "2rem", lineHeight: "1.5" }}
+                  className="headline"
+                  style={{ fontWeight: "500", fontSize: "2rem", lineHeight: "1.5" }}
                 >
-                  Participation and Contribution{" "}
+                  Participation <br/> and Contribution{" "}
                   <img width={40} src={checkIcon} alt="check" />
                 </p>
               </div>

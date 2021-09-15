@@ -132,7 +132,7 @@ const Vocabulary = ({ handleCloseButton }) => {
       <section>
         <div className="container">
           <button className="back-arrow" onClick={handleCloseButton}>
-            <span class="button__icon">Go back</span>
+            <span className="button__icon">Go back</span>
           </button>
 
           <div

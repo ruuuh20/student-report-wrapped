@@ -30,7 +30,7 @@ const data = {
 
 const PieChart = () => (
   <>
-    <div class="chart-wrapper">
+    <div className="chart-wrapper">
         <div className='header'>
           <h4 className='title'>Criteria</h4>
         

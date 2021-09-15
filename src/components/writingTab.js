@@ -284,7 +284,7 @@ const WritingTab = ({ handleCloseButton, user, writingData }) => {
 
           <div className="rc-col rc-col-4 rc-writing rc-participation row-7">
             <span data-v-712d00a9="" className="line--top"></span>
-            <span class="line--left" data-v-2e8f64aa=""></span>
+            <span className="line--left" data-v-2e8f64aa=""></span>
             <div className="flex rc">
               <div className="values-item">
                 <span className="label">Participation</span>{" "}

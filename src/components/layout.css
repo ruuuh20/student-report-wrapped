@@ -665,7 +665,7 @@ html {
   box-sizing: border-box;
 }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 768px) {
   .main-content {
     /* height: 100%; */
   }
@@ -781,7 +781,7 @@ html {
 .intro:after {
   content: "";
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(116, 83, 83, 0.25);
   height: 1px;
   display: block;
   margin-left: 5vw;
@@ -945,7 +945,7 @@ main {
   text-decoration: none;
 }
 
-@media screen and (min-width: 53em) {
+@media screen and (min-width: 768px) {
   .frame {
     /* position: fixed; */
     z-index: 100;
@@ -1089,6 +1089,7 @@ table {
 }
 
 .headline h2 {
+  position: relative;
   font-size: 4rem;
   font-family: "Montserrat";
   font-weight: 400;
@@ -1395,11 +1396,19 @@ button {
   color: var(--color-blue);
 }
 
+.writing-hero {
+  background: #f497a4;
+}
+
 .writing-wrapper,
 .reading-wrapper {
   font-family: "Montserrat";
 }
 
+.writing-hero .container .values-item,
+.writing-hero .container .values-item .lg-value {
+  color: #224a08;
+}
 .grid-item-writing {
   grid-column: span 3;
   position: relative;
@@ -1692,7 +1701,7 @@ button {
 }
 
 .col-3 {
-  width: 33.333%;
+  width: 40%;
 }
 
 .comment-card {
@@ -2298,13 +2307,13 @@ section.part-section {
   opacity: 0.9;
 }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 768px) {
   .headline h2 {
     font-size: 58px;
   }
 
   .headline p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   .values-container {
     flex-wrap: wrap;
@@ -2450,14 +2459,9 @@ section.part-section {
   opacity: 0.8;
 }
 
-@media screen and (max-width: 53em) {
+@media screen and (max-width: 768px) {
   .sidebar {
-    grid-column: 1/5;
-    margin: 0;
-    font-size: 14px;
-    font-family: "Montserrat";
-    font-weight: 500;
-    margin-top: 1rem;
+    display: none;
   }
 
   .one:before,
@@ -2474,12 +2478,13 @@ section.part-section {
     font-size: 32px;
     line-height: 1.25;
     /* position: absolute; */
-    grid-column: 5/13;
+    grid-column: 2/12;
   }
 
   .center-container .content .intro {
     padding: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    letter-spacing: normal;
   }
 
   .accent {
@@ -2490,7 +2495,7 @@ section.part-section {
   }
 
   .menu {
-    line-height: 1.5;
+    line-height: 2.5;
   }
   .menu__item {
     padding: 0;
@@ -2498,6 +2503,7 @@ section.part-section {
   .menu__item-link,
   .marquee span {
     font-size: 10vw;
+    font-weight: 600;
   }
   .chart-container {
     padding-top: 2rem;
@@ -2517,7 +2523,8 @@ section.part-section {
     margin-top: 0;
   }
   .highlight-sm {
-    font-size: 14px;
+    font-size: 24px;
+    line-height: 1.5;
   }
   .highlight-sm img {
     width: 20px;
@@ -2543,7 +2550,7 @@ section.part-section {
 }
 
 .desc {
-  line-height: 1.5;
+  line-height: 2;
 }
 
 .accent-circle {
@@ -2566,6 +2573,11 @@ section.part-section {
 .active .accent-circle {
   display: block;
   transition: 0.3s ease all;
+}
+
+.accent-circle.visible {
+  display: block;
+  border: 4px solid #fcb742;
 }
 
 .rel {
@@ -3180,9 +3192,7 @@ th {
 .grid-table .grade {
   font-size: 16px;
 }
-.flex-m {
-  flex-direction: column;
-}
+
 .vocab-rc {
   grid-column: 4 / span 10;
 }
@@ -3225,4 +3235,11 @@ th {
   .rc-vocab.row-3 {
     grid-row: 4;
   }
+  .line--left {
+    display: none;
+  }
+}
+
+.writing-part-bg {
+  background: #224a08;
 }

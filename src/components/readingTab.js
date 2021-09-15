@@ -198,19 +198,19 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           </section>
 
           <section className="rc-col rc-col-1">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <div className="chart-container pie">
               <PieChart />
             </div>
           </section>
           <section className="rc-col rc-col-1-2">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <div className="chart-container">
               <WritingBar />
             </div>
           </section>
           <section className="rc-col rc-col-2">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <div className="header">
               <h4 className="title">Homework assignments</h4>
             </div>
@@ -270,7 +270,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
             
           </section> */}
           <section className="rc-col rc-col-3">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <div className="grid-12 books-container">
               {contentfulData.allContentfulBook.edges.map((grid, index) => (
                 <Grid
@@ -323,8 +323,8 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           </div>
 
           <div className="rc-col rc-col-4 rc-participation">
-            <span data-v-712d00a9="" className="line--top"></span>
-            <span class="line--left" data-v-2e8f64aa=""></span>
+            <span className="line--top"></span>
+            <span className="line--left"></span>
             <div className="flex rc reading-values">
               <div className="values-item">
                 <span className="label">Participation</span>{" "}
@@ -364,7 +364,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
           </div>
 
           <div className="rc-col rc-col-6">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <div className="quiz-table-wrapper">
               <div className="grid-table">
                 <div>
@@ -387,7 +387,7 @@ const ReadingTab = ({ handleCloseButton, user }) => {
             </div>
           </div>
           <section className="rc-col rc-col-7">
-            <span data-v-712d00a9="" className="line--top"></span>
+            <span className="line--top"></span>
             <p>
               John demonstrates good progress in using a variety of reading
               comprehension skills and strategies to understand text. He also

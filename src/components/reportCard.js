@@ -88,12 +88,12 @@ const ReportCard = () => {
               great essays, and how to use new vocabulary words. 
 
             </p>
-             {/* <span className="rel">reading/writing<strong className="accent-circle">&nbsp;</strong></span>. */}
+           
           </div>
         </div>
       </section>
-      <nav class="main-navigation">
-        <div class="menu-live-navigation-container">
+      <nav className="main-navigation">
+        <div className="menu-live-navigation-container">
           <ul id="primary-menu" className="subjects-menu">
             <li
              
@@ -124,7 +124,7 @@ const ReportCard = () => {
       <div className="rc-main">{subj && subj}</div>
       <div className="cta-details">
         <div className="row">
-          <Link to="/">View more details about your child's report card</Link>
+          <Link to="/parent">View more details about your child's report card</Link>
         </div>
       </div>
      

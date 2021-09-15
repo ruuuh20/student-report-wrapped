@@ -11,6 +11,14 @@ import checkIcon from "../images/check-circle.svg"
 import { motion } from "framer-motion"
 import { useInView, InView } from "react-intersection-observer"
 import { useAnimation } from "framer-motion"
+import {
+  RevealLeft,
+  RevealRight,
+  GradientRevealLeft,
+  ImageReveal,
+  GradientRevealRightLarge,
+  ImageParallax,
+} from "../components/revealHelpers"
 
 const Writing = ({ handleCloseButton }) => {
   const contentfulData = useStaticQuery(graphql`
@@ -108,7 +116,7 @@ const Writing = ({ handleCloseButton }) => {
         accessor: "col2",
       },
       {
-        Header: "",
+        Header: "Grade",
         accessor: "col3",
       },
     ],
@@ -148,38 +156,40 @@ const Writing = ({ handleCloseButton }) => {
       }}
     >
       <motion.section variants={fade}>
-        <div className="container">
-          <button className="back-arrow" onClick={handleCloseButton}>
-            <span className="button__icon">Go back</span>
-          </button>
-          {/* 
-          <div
-            className="bg-circle"
-            style={{ clipPath: "circle(55% at 75% 50%)" }}
-          ></div> */}
-          <div className="headline row">
-            <h2>Your writing overview</h2>
+        <section class="writing-hero">
+          <div className="container">
+            <button className="back-arrow" onClick={handleCloseButton}>
+              <span className="button__icon">Go back</span>
+            </button>
+            {/*
+            <div
+              className="bg-circle"
+              style={{ clipPath: "circle(55% at 75% 50%)" }}
+            ></div> */}
+            <div className="headline row">
+              <h2>John's <span className="rel">writing<strong className="visible accent-circle">&nbsp;</strong></span> overview</h2>
+            </div>
+            <div
+              className="values-container row reading"
+              style={{
+                display: "flex",
+              }}
+            >
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Average grade<span className="lg-value">A</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Writing score <span className="lg-value">92%</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Attendance <span className="lg-value">10/10</span>
+              </div>
+              <div className="values-item" style={{ zIndex: "999" }}>
+                Homework <span className="lg-value">15/15</span>
+              </div>
+            </div>
           </div>
-          <div
-            className="values-container row reading"
-            style={{
-              display: "flex",
-            }}
-          >
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Average grade<span className="lg-value">A</span>
-            </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Writing score <span className="lg-value">92%</span>
-            </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Attendance <span className="lg-value">10/10</span>
-            </div>
-            <div className="values-item" style={{ zIndex: "999" }}>
-              Homework <span className="lg-value">15/15</span>
-            </div>
-          </div>
-        </div>
+        </section>
       </motion.section>
       <section>
         <div className="container">
@@ -192,7 +202,7 @@ const Writing = ({ handleCloseButton }) => {
               >
                 Writing is a life-long skill that students will use for the rest
                 of their days.
-              </span>
+              </span> <br/>
               That’s why it’s so important that parents know how well their kids
               are progressing in writing and what steps they can take in order
               to improve in less-than-strong areas.
@@ -216,7 +226,7 @@ const Writing = ({ handleCloseButton }) => {
       <section>
         <div className="container">
           <div className="headline">
-            <p>Based on your essay feedback, we fonud the following:</p>
+            <p>Based on your essay feedback, we found the following:</p>
           </div>
         </div>
         <div className="flex">
@@ -243,7 +253,7 @@ const Writing = ({ handleCloseButton }) => {
             <div className="list-wrap-w">
               <div className="sub-headline">
                 <h4>
-                  You <br />
+                  He <br />
                   could <br />
                   improve
                   <br />
@@ -307,7 +317,7 @@ const Writing = ({ handleCloseButton }) => {
               </div>
             </div>
           </div>
-          <div className="row flex" style={{ justifyContent: "center" }}>
+          <div className="flex row" style={{ justifyContent: "center" }}>
             <div className="comment-card">
               <div className="comment-card-icon-container">
                 <span className="comment-title">Comment</span>
@@ -323,13 +333,18 @@ const Writing = ({ handleCloseButton }) => {
       </section>
 
       <section style={{ background: "#bbdaee" }}>
+        <RevealRight>
+            <span className="scroll-text scroll-right outline-blue">
+              Homework
+            </span>
+          </RevealRight>
         <div className="container">
           <div className="row">
             <div className="headline headline-p">
               <p>
-                You missed 1 assignment, but you completed almost all writing
-                assignments, including book reports and NYT essays. You also
-                worked on revisions.
+                He missed 1 assignment but completed all other writing
+                assignments, including book reports and NYT essays. He also
+                worked on revisions of essays.
               </p>
             </div>
             <table
@@ -384,10 +399,13 @@ const Writing = ({ handleCloseButton }) => {
       </section>
 
       <section>
+         <RevealLeft>
+            <span className="scroll-text scroll-left">Essays</span>
+          </RevealLeft>
         <div className="container">
           <div className="headline">
             <p>
-              You can take a look at some of your essays and feedback (click to
+              Here are some of his essays and feedback (click to
               view larger)
             </p>
           </div>
@@ -430,7 +448,10 @@ const Writing = ({ handleCloseButton }) => {
         </div>
       </section>
 
-      <section style={{ background: "rgb(120,75,55)", color: "#eeeeee" }}>
+      <section className="writing-part-bg">
+          <RevealRight>
+            <span className="scroll-text scroll-right">Other</span>
+          </RevealRight>
         <div className="container">
           <div
             className="values-container row reading"
@@ -440,7 +461,7 @@ const Writing = ({ handleCloseButton }) => {
           >
             <div className="values-item col-3">
               <p style={{ fontSize: "2rem", lineHeight: "1.5" }}>
-                You participated and contributed a lot to the class.
+              He participated and contributed a lot to the class.
               </p>
             </div>
             <div
@@ -481,6 +502,17 @@ const Writing = ({ handleCloseButton }) => {
           </div>
         </div>
       </section>
+       <section style={{ padding: "5rem 0" }}>
+          <div className="container">
+            <h3 className="closing">
+              That's a wrap &#8212;
+              <br />
+              <span style={{ marginLeft: "80px", marginTop: "20px" }}>
+                Have a great summer!
+              </span>
+            </h3>
+          </div>
+        </section>
     </motion.div>
   )
 }
