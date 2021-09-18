@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import ModalImage from "react-modal-image"
@@ -10,7 +9,7 @@ import PieChart from "./pieChart"
 import smileIcon from "../images/iconmonstr-smiley-2.svg"
 import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
-const VocabTab = ({ handleCloseButton, user }) => {
+const VocabTab = () => {
   const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
 
   const fade = {
@@ -249,9 +248,6 @@ const Grid = ({
         className={`grid-item-writing`}
         ref={grid}
         style={{ display: "grid", textAlign: "center" }}
-
-        // onMouseOver={handleGridItem}
-        // onClick={handleClick}
       >
         <span
           style={{

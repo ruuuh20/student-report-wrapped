@@ -82,7 +82,7 @@ const Loader = ({ setLoading }) => {
               // style={{ x: "20%", y: "50%" }}
             >
               <div className="texture"></div>
-              <Link className="page-link" to="/student">
+              <Link className="page-link" to="/card">
                 <h5>PEAK</h5>
               </Link>
             </motion.div>

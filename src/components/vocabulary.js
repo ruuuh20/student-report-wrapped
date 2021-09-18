@@ -1,12 +1,10 @@
 import React, { useRef, useState } from "react"
 import { useTable } from "react-table"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import WritingBar from "./writingBar"
 import ModalImage from "react-modal-image"
-import icon from "../images/pencil.svg"
-import arrowIcon from "../images/arrow-right.svg"
-import checkIcon from "../images/check-circle.svg"
+
 
 const Vocabulary = ({ handleCloseButton }) => {
   const contentfulData = useStaticQuery(graphql`
@@ -146,7 +144,7 @@ const Vocabulary = ({ handleCloseButton }) => {
             style={{ clipPath: "circle(55% at 75% 50%)" }}
           ></div> */}
           <div className="headline row">
-            <h2>John's <span className="rel">vocabulary<strong className="visible accent-circle">&nbsp;</strong></span>overview</h2>
+            <h2>John's <span className="rel">vocabulary<strong className="visible accent-circle">&nbsp;</strong></span> overview</h2>
           </div>
           <div
             className="values-container row"

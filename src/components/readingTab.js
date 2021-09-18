@@ -10,7 +10,7 @@ import PieChart from "./pieChart"
 import smileIcon from "../images/iconmonstr-smiley-2.svg"
 import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
-const ReadingTab = ({ handleCloseButton, user }) => {
+const ReadingTab = () => {
   const contentfulData = useStaticQuery(graphql`
     query {
       allContentfulBook {
@@ -278,8 +278,6 @@ const ReadingTab = ({ handleCloseButton, user }) => {
                   title={grid.node.title}
                   imageUrl={grid.node.thumbnail.file.url}
                   image={grid.node.thumbnail}
-                  //   handleGridItem={handleGridItem}
-                  //   handleClick={handleClick}
                 />
               ))}
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Writing from "../components/writing"
@@ -53,7 +53,6 @@ const ParentPage
     }
 
   const [contentOpen, setContentOpen] = useState(false)
-  // const [writingOpen, setWritingOpen] = useState(false)
   const [subjectOpen, setSubjectOpen] = useState("home")
   const [loading, setLoading] = useState(true)
 
@@ -63,9 +62,6 @@ const ParentPage
     // gsap.set(".preview__item-content", { opacity: 0 })
             const menuItems = [];
         // initialize the MenuItems
-
-        
-        // show the menu items (initial animation where each menu item gets revealed)
         showMenuItems();
 
 
@@ -76,8 +72,6 @@ const ParentPage
       ? document.querySelector("body").classList.add("loading")
       : document.querySelector("body").classList.remove("loading");
   }, [loading]);
-
-  // const title = e.target.dataset.title
 
   const handleGridItem = e => {
     console.log(e.target)
@@ -115,16 +109,13 @@ const ParentPage
     gsap.timeline().to(".grid", {
       opacity: 1,
     })
-    // setWritingOpen(false)
+
   }
 
   const handleClickSubject = e => {
     
     let subject = e.currentTarget.dataset.subject
-
     setSubjectOpen(subject)
-
-    // setWritingOpen(true)
 
     gsap.timeline().to(".grid", {
       opacity: 0,
@@ -145,20 +136,7 @@ const ParentPage
   else {
     subj = (
       <div className="center-container">
-        <div className="sidebar">
-          <ul>
-            <li>
-              <span className="one">John Smith</span>
-            </li>
-            <li>
-              <span className="two">English 6</span>
-            </li>
-            
-            <li>
-              <span className="three">Paul L</span>
-            </li>
-          </ul>
-        </div>
+      
         <div className="content">
           <span className="intro">
             John's
@@ -235,7 +213,6 @@ const ParentPage
       <Seo title="Home" />
       <div className="main-content">
         {subj && subj}
-       
       </div>
     </Layout>
     </>
@@ -246,7 +223,6 @@ const ParentPage
 const Grid = ({
   title,
   index,
-  video,
   imageUrl,
   image,
   handleClick,

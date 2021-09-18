@@ -14,10 +14,7 @@ import { useAnimation } from "framer-motion"
 import {
   RevealLeft,
   RevealRight,
-  GradientRevealLeft,
-  ImageReveal,
-  GradientRevealRightLarge,
-  ImageParallax,
+
 } from "../components/revealHelpers"
 
 const Writing = ({ handleCloseButton }) => {

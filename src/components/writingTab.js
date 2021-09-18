@@ -9,7 +9,7 @@ import PieChart from "./pieChart"
 import smileIcon from "../images/iconmonstr-smiley-2.svg"
 import frownIcon from "../images/iconmonstr-smiley-6.svg"
 
-const WritingTab = ({ handleCloseButton, user, writingData }) => {
+const WritingTab = ({  writingData }) => {
   const transition = { duration: 0.35, ease: [0.43, 0.13, 0.23, 0.96] }
 
   const fade = {

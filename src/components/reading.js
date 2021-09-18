@@ -18,20 +18,12 @@ import gsap from "gsap"
 import {
   RevealLeft,
   RevealRight,
-  GradientRevealLeft,
   ImageReveal,
-  GradientRevealRightLarge,
   ImageParallax,
 } from "../components/revealHelpers"
 
 const Reading = ({ handleCloseButton, user }) => {
-  const changeText = {
-    name: user === "parent" ? `John's` : "your",
-    nameCapital: user === "parent" ? `John's` : "Your",
-    pronoun: user === "parent" ? `his` : "your",
-    capitalPronoun: user === "parent" ? `His` : "Your",
-    capitalPronoun2: user === "parent" ? `He` : "Your",
-  }
+
   const { ref, inView } = useInView({
     threshold: 0.3,
   })
@@ -232,7 +224,7 @@ const Reading = ({ handleCloseButton, user }) => {
             </button>
             <div className="headline row">
               <h2>
-                Let's go over {changeText.name} <br />
+                Let's go over John's <br />
                 <span className="rel">reading<strong className="visible accent-circle">&nbsp;</strong></span> report
               </h2>
             </div>
@@ -269,7 +261,7 @@ const Reading = ({ handleCloseButton, user }) => {
           <div className="container">
             <div className="headline">
               <p>
-                Based on {changeText.pronoun} most recent book assignments and
+                Based on John's most recent book assignments and
                 feedback, we found the following:
               </p>
             </div>
@@ -280,7 +272,7 @@ const Reading = ({ handleCloseButton, user }) => {
               <div className="list-wrap-s">
                 <div className="sub-headline">
                   <h4>
-                    {changeText.capitalPronoun} <br />
+                    His <br />
                     <strong>strengths </strong>
                     <br /> are:
                   </h4>
@@ -301,7 +293,7 @@ const Reading = ({ handleCloseButton, user }) => {
               <div className="list-wrap-w">
                 <div className="sub-headline">
                   <h4>
-                    {changeText.capitalPronoun2} <br />
+                    He <br />
                     could <br />
                     <strong>improve</strong>
                     <br />
@@ -342,7 +334,7 @@ const Reading = ({ handleCloseButton, user }) => {
                   >
                     <p>
                       <span className="highlight1 highlight-sm">
-                        {changeText.nameCapital} reading responses have shown
+                        His reading responses have shown
                         improvement in various areas.{" "}
                         <img width={40} src={checkIcon} alt="check" />
                       </span>
@@ -482,7 +474,7 @@ const Reading = ({ handleCloseButton, user }) => {
             >
               <div className="headline-s">
                 <p>
-                  {changeText.capitalPronoun2} read these books over the last
+                  Students read these books over the last
                   few months...
                 </p>
               </div>

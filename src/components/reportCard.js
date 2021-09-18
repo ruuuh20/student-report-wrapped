@@ -58,10 +58,6 @@ const ReportCard = () => {
     let subject = e.currentTarget.dataset.subject
     setSubjectOpen(subject)
     setClass(subject)
-
-    //  gsap.timeline().to(".grid", {
-    //    opacity: 0,
-    //  })
   }
 
   return (

@@ -1,16 +1,19 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import  React from "react"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import ReportCard from "../components/reportCard"
 
-const CardPage = () => (
-  <Layout>
-    <div style={{ margin: "3rem auto" }}>
+const CardPage = ({location}) => {
+  const url = location.pathname ? location.pathname : '';
+
+return (
+  <Layout url={url}>
+    <div style={{ margin: "4rem auto" }}>
       <ReportCard />
     </div>
   </Layout>
+
 )
+}
 
 export default CardPage

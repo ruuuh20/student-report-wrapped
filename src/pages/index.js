@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion"
 import { gsap } from "gsap"
